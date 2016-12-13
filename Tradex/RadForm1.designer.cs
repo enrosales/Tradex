@@ -186,6 +186,7 @@ namespace Tradex
             this.txtPassword.Size = new System.Drawing.Size(233, 22);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.Text = "Sql2016!";
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // txtUsuario
             // 
@@ -230,6 +231,7 @@ namespace Tradex
             this.comboBDRemoto.Name = "comboBDRemoto";
             this.comboBDRemoto.Size = new System.Drawing.Size(230, 24);
             this.comboBDRemoto.TabIndex = 4;
+            this.comboBDRemoto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBDRemoto_KeyPress);
             // 
             // label5
             // 
@@ -342,6 +344,7 @@ namespace Tradex
             this.txtPassw.Size = new System.Drawing.Size(233, 22);
             this.txtPassw.TabIndex = 12;
             this.txtPassw.Text = "Sql2016!";
+            this.txtPassw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassw_KeyPress);
             // 
             // txtUser
             // 
@@ -362,6 +365,7 @@ namespace Tradex
             this.comboBasesDatos.Name = "comboBasesDatos";
             this.comboBasesDatos.Size = new System.Drawing.Size(231, 24);
             this.comboBasesDatos.TabIndex = 3;
+            this.comboBasesDatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBasesDatos_KeyPress);
             // 
             // comboServersLocal
             // 

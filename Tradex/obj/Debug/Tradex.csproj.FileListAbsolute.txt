@@ -185,3 +185,24 @@ C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ProductDetails.
 C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Properties.Resources.resources
 C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.RadForm1.resources
 C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Tradex.exe.config
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.exe
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.pdb
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Tradex.exe
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Tradex.pdb
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\EntityFramework.dll
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\EntityFramework.xml
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.Clasificador.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.ExcelForm.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.Form2.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.ProductDetails.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.RadForm1.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache

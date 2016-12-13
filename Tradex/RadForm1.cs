@@ -228,11 +228,12 @@ namespace Tradex
             button3.Enabled = true;
         }
 
+        //boton de conectarse a una bd remota aqui se muestra el otro form...
         private void button3_Click_1(object sender, EventArgs e)
         {
             try
             {
-                Form2 f = new Form2();
+                
                 bd = comboBDRemoto.SelectedItem.ToString();
                 DataContainer.Instance().Servidor = server;
                 DataContainer.Instance().Bd = bd;
@@ -240,6 +241,7 @@ namespace Tradex
                 DataContainer.Instance().Password = pass;
                 DataContainer.Instance().ConectionString = "data source=" + comboBoxServerRemoto.SelectedItem + ";" +
                 "initial catalog=" + comboBDRemoto.SelectedItem + ";persist security info=True;user id="+user+";password="+pass+";MultipleActiveResultSets=True;";
+                Form2 f = new Form2();
                 Hide();
                 f.ShowDialog();
             }
@@ -354,6 +356,30 @@ namespace Tradex
             button1.Enabled = true;
             CargarDefaultRemoto();
             comboBDRemoto.Enabled = comboBasesDatos.Enabled = false;
+        }
+
+        private void txtPassw_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (int) Keys.Enter)
+                btnConectar.PerformClick();
+        }
+
+        private void comboBasesDatos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+                button4.PerformClick();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+                button1.PerformClick();
+        }
+
+        private void comboBDRemoto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+                button3.PerformClick();
         }
     }
 }
