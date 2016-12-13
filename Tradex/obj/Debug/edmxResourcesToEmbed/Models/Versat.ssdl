@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="con_cuenta">
+    <Key>
+      <PropertyRef Name="idcuenta" />
+    </Key>
+    <Property Name="idcuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idapertura" Type="int" Nullable="false" />
+    <Property Name="activa" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_almacen">
+    <Key>
+      <PropertyRef Name="idalmacen" />
+    </Key>
+    <Property Name="idalmacen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="idunidad" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="Jefe" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_entidad">
+    <Key>
+      <PropertyRef Name="identidad" />
+    </Key>
+    <Property Name="identidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="codigoreu" Type="nvarchar" MaxLength="19" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="abreviatura" Type="nvarchar" MaxLength="50" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="30" />
+    <Property Name="NIT" Type="varchar" MaxLength="50" />
+    <Property Name="IRCC" Type="nvarchar" MaxLength="15" />
+    <Property Name="provincia" Type="nvarchar" MaxLength="150" />
+    <Property Name="pais" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="gen_medida">
+    <Key>
+      <PropertyRef Name="idmedida" />
+    </Key>
+    <Property Name="idmedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_moneda">
+    <Key>
+      <PropertyRef Name="idmoneda" />
+    </Key>
+    <Property Name="idmoneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="sigla" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="tipomoneda" Type="int" Nullable="false" />
+    <Property Name="MantieneValorTasa" Type="bit" Nullable="false" />
+    <Property Name="factor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_periodo">
+    <Key>
+      <PropertyRef Name="idperiodo" />
+    </Key>
+    <Property Name="idperiodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idejercicio" Type="tinyint" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="inicio" Type="smalldatetime" Nullable="false" />
+    <Property Name="fin" Type="smalldatetime" Nullable="false" />
+    <Property Name="enuso" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_producto">
+    <Key>
+      <PropertyRef Name="idproducto" />
+    </Key>
+    <Property Name="idproducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idmedida" Type="int" Nullable="false" />
+    <Property Name="idnivelclas" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="precio" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="gen_tasacambio">
+    <Key>
+      <PropertyRef Name="idtasa" />
+    </Key>
+    <Property Name="idtasa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idmoneda" Type="int" Nullable="false" />
+    <Property Name="fechacambio" Type="smalldatetime" Nullable="false" />
+    <Property Name="tasacambio" Type="numeric" Precision="18" Scale="10" Nullable="false" />
+    <Property Name="origen" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipotasa" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="idsubsistema" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="gen_unidadcontable">
+    <Key>
+      <PropertyRef Name="idunidad" />
+    </Key>
+    <Property Name="idunidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="150" />
+    <Property Name="DirCorreo" Type="nvarchar" MaxLength="150" />
+    <Property Name="idnae" Type="int" />
+    <Property Name="iddpa" Type="int" />
+    <Property Name="idreup" Type="int" />
+  </EntityType>
+  <EntityType Name="inv_concepto">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idregdocum" Type="int" Nullable="false" />
+    <Property Name="idcriterio" Type="int" />
+    <Property Name="codigo" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idcategoria" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="inv_configconceptocta">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+      <PropertyRef Name="idunidad" />
+      <PropertyRef Name="idcuenta" />
+    </Key>
+    <Property Name="idconcepto" Type="int" Nullable="false" />
+    <Property Name="idunidad" Type="int" Nullable="false" />
+    <Property Name="idcuenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inv_configgeneral">
+    <Key>
+      <PropertyRef Name="idunidad" />
+    </Key>
+    <Property Name="idunidad" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="smalldatetime" />
+    <Property Name="sumactrl" Type="bit" />
+    <Property Name="usamlc" Type="bit" />
+    <Property Name="usamn" Type="bit" />
+    <Property Name="mostrarvalid" Type="bit" Nullable="false" />
+    <Property Name="obligcompra" Type="bit" Nullable="false" />
+    <Property Name="obligventa" Type="bit" Nullable="false" />
+    <Property Name="obligventatrab" Type="bit" Nullable="false" />
+    <Property Name="usalote" Type="bit" Nullable="false" />
+    <Property Name="iva" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inv_documentoserv">
+    <Key>
+      <PropertyRef Name="iddocumentoserv" />
+    </Key>
+    <Property Name="iddocumento" Type="int" Nullable="false" />
+    <Property Name="identidad" Type="int" Nullable="false" />
+    <Property Name="idservicio" Type="int" Nullable="false" />
+    <Property Name="idmoneda" Type="int" Nullable="false" />
+    <Property Name="idtasa" Type="int" />
+    <Property Name="importe" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="iddocumentoserv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crc" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_gen_almacen_gen_unidadcontable">
+    <End Role="gen_unidadcontable" Type="Self.gen_unidadcontable" Multiplicity="1" />
+    <End Role="gen_almacen" Type="Self.gen_almacen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_unidadcontable">
+        <PropertyRef Name="idunidad" />
+      </Principal>
+      <Dependent Role="gen_almacen">
+        <PropertyRef Name="idunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gen_producto_gen_medida">
+    <End Role="gen_medida" Type="Self.gen_medida" Multiplicity="1" />
+    <End Role="gen_producto" Type="Self.gen_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_medida">
+        <PropertyRef Name="idmedida" />
+      </Principal>
+      <Dependent Role="gen_producto">
+        <PropertyRef Name="idmedida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gen_tasacambio_gen_moneda">
+    <End Role="gen_moneda" Type="Self.gen_moneda" Multiplicity="1" />
+    <End Role="gen_tasacambio" Type="Self.gen_tasacambio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_moneda">
+        <PropertyRef Name="idmoneda" />
+      </Principal>
+      <Dependent Role="gen_tasacambio">
+        <PropertyRef Name="idmoneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_configconceptocta_con_cuenta">
+    <End Role="con_cuenta" Type="Self.con_cuenta" Multiplicity="1" />
+    <End Role="inv_configconceptocta" Type="Self.inv_configconceptocta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="con_cuenta">
+        <PropertyRef Name="idcuenta" />
+      </Principal>
+      <Dependent Role="inv_configconceptocta">
+        <PropertyRef Name="idcuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_configconceptocta_gen_unidadcontable">
+    <End Role="gen_unidadcontable" Type="Self.gen_unidadcontable" Multiplicity="1" />
+    <End Role="inv_configconceptocta" Type="Self.inv_configconceptocta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_unidadcontable">
+        <PropertyRef Name="idunidad" />
+      </Principal>
+      <Dependent Role="inv_configconceptocta">
+        <PropertyRef Name="idunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_configgeneral_gen_unidadcontable">
+    <End Role="gen_unidadcontable" Type="Self.gen_unidadcontable" Multiplicity="1" />
+    <End Role="inv_configgeneral" Type="Self.inv_configgeneral" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="gen_unidadcontable">
+        <PropertyRef Name="idunidad" />
+      </Principal>
+      <Dependent Role="inv_configgeneral">
+        <PropertyRef Name="idunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_documentoserv_gen_entidad">
+    <End Role="gen_entidad" Type="Self.gen_entidad" Multiplicity="1" />
+    <End Role="inv_documentoserv" Type="Self.inv_documentoserv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_entidad">
+        <PropertyRef Name="identidad" />
+      </Principal>
+      <Dependent Role="inv_documentoserv">
+        <PropertyRef Name="identidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_documentoserv_gen_moneda">
+    <End Role="gen_moneda" Type="Self.gen_moneda" Multiplicity="1" />
+    <End Role="inv_documentoserv" Type="Self.inv_documentoserv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_moneda">
+        <PropertyRef Name="idmoneda" />
+      </Principal>
+      <Dependent Role="inv_documentoserv">
+        <PropertyRef Name="idmoneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_documentoserv_gen_tasacambio">
+    <End Role="gen_tasacambio" Type="Self.gen_tasacambio" Multiplicity="0..1" />
+    <End Role="inv_documentoserv" Type="Self.inv_documentoserv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_tasacambio">
+        <PropertyRef Name="idtasa" />
+      </Principal>
+      <Dependent Role="inv_documentoserv">
+        <PropertyRef Name="idtasa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TradexModelStoreContainer">
+    <EntitySet Name="con_cuenta" EntityType="Self.con_cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_almacen" EntityType="Self.gen_almacen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_entidad" EntityType="Self.gen_entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_medida" EntityType="Self.gen_medida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_moneda" EntityType="Self.gen_moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_periodo" EntityType="Self.gen_periodo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_producto" EntityType="Self.gen_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_tasacambio" EntityType="Self.gen_tasacambio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_unidadcontable" EntityType="Self.gen_unidadcontable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_concepto" EntityType="Self.inv_concepto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_configconceptocta" EntityType="Self.inv_configconceptocta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_configgeneral" EntityType="Self.inv_configgeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_documentoserv" EntityType="Self.inv_documentoserv" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_gen_almacen_gen_unidadcontable" Association="Self.FK_gen_almacen_gen_unidadcontable">
+      <End Role="gen_unidadcontable" EntitySet="gen_unidadcontable" />
+      <End Role="gen_almacen" EntitySet="gen_almacen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gen_producto_gen_medida" Association="Self.FK_gen_producto_gen_medida">
+      <End Role="gen_medida" EntitySet="gen_medida" />
+      <End Role="gen_producto" EntitySet="gen_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gen_tasacambio_gen_moneda" Association="Self.FK_gen_tasacambio_gen_moneda">
+      <End Role="gen_moneda" EntitySet="gen_moneda" />
+      <End Role="gen_tasacambio" EntitySet="gen_tasacambio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_configconceptocta_con_cuenta" Association="Self.FK_inv_configconceptocta_con_cuenta">
+      <End Role="con_cuenta" EntitySet="con_cuenta" />
+      <End Role="inv_configconceptocta" EntitySet="inv_configconceptocta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_configconceptocta_gen_unidadcontable" Association="Self.FK_inv_configconceptocta_gen_unidadcontable">
+      <End Role="gen_unidadcontable" EntitySet="gen_unidadcontable" />
+      <End Role="inv_configconceptocta" EntitySet="inv_configconceptocta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_configgeneral_gen_unidadcontable" Association="Self.FK_inv_configgeneral_gen_unidadcontable">
+      <End Role="gen_unidadcontable" EntitySet="gen_unidadcontable" />
+      <End Role="inv_configgeneral" EntitySet="inv_configgeneral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_documentoserv_gen_entidad" Association="Self.FK_inv_documentoserv_gen_entidad">
+      <End Role="gen_entidad" EntitySet="gen_entidad" />
+      <End Role="inv_documentoserv" EntitySet="inv_documentoserv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_documentoserv_gen_moneda" Association="Self.FK_inv_documentoserv_gen_moneda">
+      <End Role="gen_moneda" EntitySet="gen_moneda" />
+      <End Role="inv_documentoserv" EntitySet="inv_documentoserv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_documentoserv_gen_tasacambio" Association="Self.FK_inv_documentoserv_gen_tasacambio">
+      <End Role="gen_tasacambio" EntitySet="gen_tasacambio" />
+      <End Role="inv_documentoserv" EntitySet="inv_documentoserv" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

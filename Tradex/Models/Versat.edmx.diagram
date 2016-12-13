@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2eeb87549a984f9c9a4e9f015dfe775e" Name="Diagram1">
+        <EntityTypeShape EntityType="TradexModel.con_cuenta" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.gen_entidad" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.gen_moneda" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.gen_producto" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.gen_tasacambio" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.inv_concepto" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.inv_configconceptocta" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradexModel.inv_documentoserv" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="TradexModel.FK_inv_configconceptocta_con_cuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="TradexModel.FK_inv_documentoserv_gen_entidad" ManuallyRouted="false" />
+        <AssociationConnector Association="TradexModel.FK_gen_tasacambio_gen_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="TradexModel.FK_inv_documentoserv_gen_moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="TradexModel.FK_inv_documentoserv_gen_tasacambio" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TradexModel.gen_almacen" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="TradexModel.gen_unidadcontable" Width="1.5" PointX="0.75" PointY="5.375" />
+        <AssociationConnector Association="TradexModel.FK_gen_almacen_gen_unidadcontable" />
+        <AssociationConnector Association="TradexModel.FK_inv_configconceptocta_gen_unidadcontable" />
+        <EntityTypeShape EntityType="TradexModel.gen_periodo" Width="1.5" PointX="8.375" PointY="8.75" />
+        <EntityTypeShape EntityType="TradexModel.inv_configgeneral" Width="1.5" PointX="3" PointY="15.375" />
+        <AssociationConnector Association="TradexModel.FK_inv_configgeneral_gen_unidadcontable" />
+        <EntityTypeShape EntityType="TradexModel.gen_medida" Width="1.5" PointX="5.5" PointY="12.125" />
+        <AssociationConnector Association="TradexModel.FK_gen_producto_gen_medida" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

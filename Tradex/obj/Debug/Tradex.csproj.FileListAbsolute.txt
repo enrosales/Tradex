@@ -1,0 +1,187 @@
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.Form2.resources
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Conector.RadForm1.resources
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\Tradex.exe
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\Tradex.pdb
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.exe
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\obj\Debug\Tradex.pdb
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\Tradex.exe.config
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\EntityFramework.dll
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\EntityFramework.xml
+C:\Users\hector.duran\Documents\Visual Studio 2013\Projects\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\Tradex.exe.config
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.exe
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.pdb
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\Tradex.exe
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\Tradex.pdb
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\EntityFramework.dll
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\EntityFramework.xml
+\\10.176.1.176\Disney\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.Form2.resources
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Conector.RadForm1.resources
+\\10.176.1.176\Disney\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+D:\Disney\Tradex\Tradex\bin\Debug\Tradex.exe.config
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.exe
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.pdb
+D:\Disney\Tradex\Tradex\bin\Debug\Tradex.exe
+D:\Disney\Tradex\Tradex\bin\Debug\Tradex.pdb
+D:\Disney\Tradex\Tradex\bin\Debug\EntityFramework.dll
+D:\Disney\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+D:\Disney\Tradex\Tradex\bin\Debug\EntityFramework.xml
+D:\Disney\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.Form2.resources
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+D:\Disney\Tradex\Tradex\obj\Debug\Conector.RadForm1.resources
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+\\10.176.1.199\Disney\Tradex\Tradex\bin\Debug\Tradex.exe.config
+\\10.176.1.199\Disney\Tradex\Tradex\obj\Debug\Tradex.exe
+\\10.176.1.199\Disney\Tradex\Tradex\obj\Debug\Tradex.pdb
+D:\Disney\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Disney\Tradex\Tradex\bin\Debug\office.dll
+D:\Disney\Tradex\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Disney\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\Disney\Tradex\Tradex\bin\Debug\office.xml
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.ExcelForm.resources
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+D:\Disney\Tradex\Tradex\obj\Debug\Tradex.ProductDetails.resources
+G:\tradex\Tradex\Tradex\bin\Debug\Tradex.exe.config
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.exe
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.pdb
+G:\tradex\Tradex\Tradex\bin\Debug\Tradex.exe
+G:\tradex\Tradex\Tradex\bin\Debug\Tradex.pdb
+G:\tradex\Tradex\Tradex\bin\Debug\EntityFramework.dll
+G:\tradex\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+G:\tradex\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+G:\tradex\Tradex\Tradex\bin\Debug\office.dll
+G:\tradex\Tradex\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+G:\tradex\Tradex\Tradex\bin\Debug\EntityFramework.xml
+G:\tradex\Tradex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+G:\tradex\Tradex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+G:\tradex\Tradex\Tradex\bin\Debug\office.xml
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.ExcelForm.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.Form2.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.ProductDetails.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Conector.RadForm1.resources
+G:\tradex\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Tradex.exe.config
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Tradex.exe
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Tradex.pdb
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\EntityFramework.dll
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\office.dll
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\EntityFramework.xml
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\Extremo\Desktop\TRadex\Tradex\bin\Debug\office.xml
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.ExcelForm.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.Form2.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.ProductDetails.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Conector.RadForm1.resources
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.exe
+C:\Users\Extremo\Desktop\TRadex\Tradex\obj\Debug\Tradex.pdb
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Tradex.exe.config
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.exe
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.pdb
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Tradex.exe
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Tradex.pdb
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\EntityFramework.dll
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\office.dll
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\EntityFramework.xml
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\Disney\TRadex ult vers\Tradex\bin\Debug\office.xml
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.ExcelForm.resources
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.Form2.resources
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.ProductDetails.resources
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.RadForm1.resources
+E:\Tradex casa 27112016\TRadex ult vers\Tradex\bin\Debug\Tradex.exe.config
+E:\Tradex casa 27112016\TRadex ult vers\Tradex\obj\Debug\Tradex.exe
+E:\Tradex casa 27112016\TRadex ult vers\Tradex\obj\Debug\Tradex.pdb
+D:\Disney\TRadex ult vers\Tradex\obj\Debug\Tradex.Clasificador.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe.config
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.exe
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.pdb
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Clasificador.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ExcelForm.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Form2.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ProductDetails.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.RadForm1.resources
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.pdb
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.dll
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\office.dll
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.xml
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\Extremo\Desktop\TRadex ult vers\Tradex\bin\Debug\office.xml
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe.config
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.exe
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.pdb
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Tradex.pdb
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.dll
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.xml
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+D:\HLTemp\develop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.Clasificador.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.ExcelForm.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.Form2.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.ProductDetails.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.RadForm1.resources
+D:\HLTemp\develop\TRadex ult vers\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe.config
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.exe
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.pdb
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.exe
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Tradex.pdb
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.dll
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.xml
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Clasificador.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ConfigProperties.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ExcelForm.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Form2.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.ProductDetails.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.Properties.Resources.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.RadForm1.resources
+C:\Users\Eduardo\Desktop\TRadex ult vers\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
