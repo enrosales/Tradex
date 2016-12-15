@@ -242,7 +242,7 @@ namespace Tradex
             cargarExcelModelo.DefaultExt = "xls";
             cargarExcelModelo.AddExtension = true;
             cargarExcelModelo.CheckPathExists = true;
-           // cargarExcelModelo.Filter = "Xls|*.xls|Xlsx|*.Xlsx";
+           // cargarExcelModelo.Filter = "Xls|*.xls|xlsx|*.xlsx";
             //(*.txt)|*.txt
             cargarExcelModelo.Filter = "Excel files(*.Xlsx)|*.Xlsx|Excel files(*.Xls)|*.Xls";
             cargarExcelModelo.Title = "Busque la dirección donde se encuentra el modelo excel con las recepciones";
@@ -312,6 +312,7 @@ namespace Tradex
                 object[] datos = new object[0];
                 DevolverPosicionDelArregloDeColumnasDelExcel(ref colCod, ref colUm, ref colDesc, ref colCant,
                     ref colImporteMn, ref colImporteCuc);
+                List<string> codigos = CodigosExcel(colCod, saRet);
                 for (rowCounter = 1; rowCounter <= iRows; rowCounter++)
                 {
                     // codProd = saRet[rowCounter, 1].ToString();
@@ -349,14 +350,14 @@ namespace Tradex
                                     // si es la primera vez busco el codigo del excel
                                     if (index == 0)
                                     {
-                                        if (!_versat.ExisteCodigo(codigo))
+                                        if (!_versat.ExisteCodigo(codigo) && !IsInCodigos(codigo,codigos))
                                         {
                                             //si no existe entonces este codigo lo puedo utilizar 
                                             temp = codigo;
                                             break;
                                         }
                                     }
-                                    else if (index != 0 && !_versat.ExisteCodigo(temp))
+                                    else if (index != 0 && !_versat.ExisteCodigo(temp) && !IsInCodigos(temp, codigos))
                                     {
                                         break;
                                     }
@@ -371,9 +372,9 @@ namespace Tradex
                           //  if (datos != null && datos.Length > 1)
                           //      pd.Descripcion = datos[1].ToString();
                             pd.Descripcion = descrip;
-
-                            if (datos != null && datos.Length > 3)
-                                pd.Umo = datos[3].ToString();
+                            pd.Umo = Um;
+                            //if (datos != null && datos.Length > 3)
+                            //    pd.Umo = datos[3].ToString();
                         }
 
                         cuentas = _versat.ListCuentaMnProducto(pd.codigo);
@@ -636,6 +637,24 @@ namespace Tradex
            // new ProductDetails(idAlmacen, ListadoDeProductos, e.RowIndex).ShowDialog();
             new ProductDetails(idAlmacen, ListadoDeProductos, idEntidadreal,e.RowIndex).ShowDialog();
             radGridView1.MasterTemplate.Refresh();
+        }
+
+
+        private List<string> CodigosExcel(int colCod, object[,] saRet)
+        {
+            List<string> fin = new List<string>();
+            for (rowCounter = 1; rowCounter <= iRows; rowCounter++)
+            {
+                fin.Add(saRet[rowCounter, colCod].ToString().Trim());
+            }
+            return fin;
+        }
+
+        private bool IsInCodigos(string codigo, List<string> codigos)
+        {
+            if (codigos.Any(a => a == codigo))
+                return true;
+            return false;
         }
     }
 }
