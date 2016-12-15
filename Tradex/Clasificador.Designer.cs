@@ -148,6 +148,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar cuentas";
+            this.ThemeName = "ControlDefault";
             this.Load += new System.EventHandler(this.Clasificador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radTreeView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

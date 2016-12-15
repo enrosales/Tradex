@@ -127,7 +127,7 @@ namespace Tradex
             this.groupBox1.Controls.Add(this.txtConcepto);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtAlmacen);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(557, 76);
@@ -159,7 +159,7 @@ namespace Tradex
             this.groupBox2.Controls.Add(this.txtFilaInicio);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtColumnaCodigo);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(12, 106);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(557, 204);
@@ -369,7 +369,7 @@ namespace Tradex
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parámetros de configuración";
-            this.ThemeName = "VisualStudio2012Dark";
+            this.ThemeName = "ControlDefault";
             this.Load += new System.EventHandler(this.ConfigProperties_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

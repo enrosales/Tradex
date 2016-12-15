@@ -1,4 +1,6 @@
-﻿namespace Tradex
+﻿using Telerik.WinControls.UI;
+
+namespace Tradex
 {
    public class DataContainer
     {
@@ -8,7 +10,7 @@
         public string Bd { get; set; }
         public string Usuario { get; set; }
         public string Password { get; set; }
-
+       
        public string ConectionString { get; set; }
 
         protected DataContainer()

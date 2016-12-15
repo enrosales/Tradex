@@ -47,12 +47,12 @@ namespace Tradex
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCuentaCuc = new System.Windows.Forms.Button();
             this.btnCuentaCup = new System.Windows.Forms.Button();
             this.comboCuentaCUC = new Telerik.WinControls.UI.RadDropDownList();
             this.comboCuentaCUP = new Telerik.WinControls.UI.RadDropDownList();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCuentaCuc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboUmo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +68,7 @@ namespace Tradex
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(6, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
@@ -78,7 +78,7 @@ namespace Tradex
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(30, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
@@ -138,7 +138,7 @@ namespace Tradex
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox3.Location = new System.Drawing.Point(3, 259);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(360, 124);
@@ -175,7 +175,7 @@ namespace Tradex
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(9, 62);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
@@ -185,7 +185,7 @@ namespace Tradex
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(9, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
@@ -201,13 +201,25 @@ namespace Tradex
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(3, 131);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(360, 122);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cuentas para moneda:";
+            // 
+            // btnCuentaCuc
+            // 
+            this.btnCuentaCuc.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCuentaCuc.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCuentaCuc.Location = new System.Drawing.Point(265, 62);
+            this.btnCuentaCuc.Name = "btnCuentaCuc";
+            this.btnCuentaCuc.Size = new System.Drawing.Size(32, 23);
+            this.btnCuentaCuc.TabIndex = 7;
+            this.btnCuentaCuc.Text = "...";
+            this.btnCuentaCuc.UseVisualStyleBackColor = false;
+            this.btnCuentaCuc.Click += new System.EventHandler(this.btnCuentaCuc_Click);
             // 
             // btnCuentaCup
             // 
@@ -238,7 +250,7 @@ namespace Tradex
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(9, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
@@ -248,24 +260,12 @@ namespace Tradex
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(9, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "CUP";
-            // 
-            // btnCuentaCuc
-            // 
-            this.btnCuentaCuc.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCuentaCuc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCuentaCuc.Location = new System.Drawing.Point(265, 62);
-            this.btnCuentaCuc.Name = "btnCuentaCuc";
-            this.btnCuentaCuc.Size = new System.Drawing.Size(32, 23);
-            this.btnCuentaCuc.TabIndex = 7;
-            this.btnCuentaCuc.Text = "...";
-            this.btnCuentaCuc.UseVisualStyleBackColor = false;
-            this.btnCuentaCuc.Click += new System.EventHandler(this.btnCuentaCuc_Click);
             // 
             // ProductDetails
             // 

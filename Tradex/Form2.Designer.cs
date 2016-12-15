@@ -216,32 +216,32 @@ namespace Tradex
             this.comboconceptos.Enabled = false;
             this.comboconceptos.Location = new System.Drawing.Point(14, 99);
             this.comboconceptos.Name = "comboconceptos";
-            this.comboconceptos.Size = new System.Drawing.Size(243, 21);
+            this.comboconceptos.Size = new System.Drawing.Size(243, 20);
             this.comboconceptos.TabIndex = 0;
-            this.comboconceptos.ThemeName = "VisualStudio2012Dark";
+            this.comboconceptos.ThemeName = "ControlDefault";
             this.comboconceptos.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.radDropDownList1_SelectedIndexChanged);
             // 
             // radLabel1
             // 
-            this.radLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.radLabel1.Location = new System.Drawing.Point(15, 75);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(55, 18);
             this.radLabel1.TabIndex = 1;
             this.radLabel1.Text = "Concepto";
-            this.radLabel1.ThemeName = "VisualStudio2012Dark";
+            this.radLabel1.ThemeName = "ControlDefault";
             // 
             // radLabel3
             // 
             this.radLabel3.Controls.Add(this.radLabel4);
             this.radLabel3.Controls.Add(this.radDropDownList1);
-            this.radLabel3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radLabel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.radLabel3.Location = new System.Drawing.Point(14, 25);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(49, 18);
             this.radLabel3.TabIndex = 4;
             this.radLabel3.Text = "Almacén";
-            this.radLabel3.ThemeName = "VisualStudio2012Dark";
+            this.radLabel3.ThemeName = "ControlDefault";
             // 
             // radLabel4
             // 
@@ -267,9 +267,9 @@ namespace Tradex
             this.combounidades.Enabled = false;
             this.combounidades.Location = new System.Drawing.Point(13, 49);
             this.combounidades.Name = "combounidades";
-            this.combounidades.Size = new System.Drawing.Size(269, 21);
+            this.combounidades.Size = new System.Drawing.Size(269, 20);
             this.combounidades.TabIndex = 5;
-            this.combounidades.ThemeName = "VisualStudio2012Dark";
+            this.combounidades.ThemeName = "ControlDefault";
             // 
             // radLabel5
             // 
@@ -280,7 +280,7 @@ namespace Tradex
             this.radLabel5.Size = new System.Drawing.Size(89, 18);
             this.radLabel5.TabIndex = 6;
             this.radLabel5.Text = "Unidad contable";
-            this.radLabel5.ThemeName = "VisualStudio2012Dark";
+            this.radLabel5.ThemeName = "ControlDefault";
             // 
             // radLabel6
             // 
@@ -310,7 +310,7 @@ namespace Tradex
             this.fechaProcesamiento.Size = new System.Drawing.Size(131, 18);
             this.fechaProcesamiento.TabIndex = 7;
             this.fechaProcesamiento.Text = "Fecha de procesamiento:";
-            this.fechaProcesamiento.ThemeName = "VisualStudio2012Dark";
+            this.fechaProcesamiento.ThemeName = "ControlDefault";
             // 
             // radLabel8
             // 
@@ -340,7 +340,7 @@ namespace Tradex
             this.fechaProcesamientoDataToDisplay.Size = new System.Drawing.Size(9, 18);
             this.fechaProcesamientoDataToDisplay.TabIndex = 8;
             this.fechaProcesamientoDataToDisplay.Text = " ";
-            this.fechaProcesamientoDataToDisplay.ThemeName = "VisualStudio2012Dark";
+            this.fechaProcesamientoDataToDisplay.ThemeName = "ControlDefault";
             // 
             // radLabel9
             // 
@@ -370,7 +370,7 @@ namespace Tradex
             this.labelNoDoc.Size = new System.Drawing.Size(189, 18);
             this.labelNoDoc.TabIndex = 9;
             this.labelNoDoc.Text = "Número de documento consecutivo:";
-            this.labelNoDoc.ThemeName = "VisualStudio2012Dark";
+            this.labelNoDoc.ThemeName = "ControlDefault";
             // 
             // radLabel10
             // 
@@ -400,7 +400,7 @@ namespace Tradex
             this.labelNoDocDataToDisplay.Size = new System.Drawing.Size(13, 18);
             this.labelNoDocDataToDisplay.TabIndex = 10;
             this.labelNoDocDataToDisplay.Text = "#";
-            this.labelNoDocDataToDisplay.ThemeName = "VisualStudio2012Dark";
+            this.labelNoDocDataToDisplay.ThemeName = "ControlDefault";
             // 
             // radLabel11
             // 
@@ -437,7 +437,7 @@ namespace Tradex
             this.radLabel7.Size = new System.Drawing.Size(104, 18);
             this.radLabel7.TabIndex = 12;
             this.radLabel7.Text = "Número de control:";
-            this.radLabel7.ThemeName = "VisualStudio2012Dark";
+            this.radLabel7.ThemeName = "ControlDefault";
             // 
             // radLabel12
             // 
@@ -467,7 +467,7 @@ namespace Tradex
             this.radLabel13.Size = new System.Drawing.Size(117, 18);
             this.radLabel13.TabIndex = 14;
             this.radLabel13.Text = "Fecha del documento:";
-            this.radLabel13.ThemeName = "VisualStudio2012Dark";
+            this.radLabel13.ThemeName = "ControlDefault";
             // 
             // radLabel14
             // 
@@ -497,7 +497,7 @@ namespace Tradex
             this.radLabel15.Size = new System.Drawing.Size(67, 18);
             this.radLabel15.TabIndex = 16;
             this.radLabel15.Text = "Comentario:";
-            this.radLabel15.ThemeName = "VisualStudio2012Dark";
+            this.radLabel15.ThemeName = "ControlDefault";
             // 
             // radLabel16
             // 
@@ -524,6 +524,7 @@ namespace Tradex
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(300, 20);
             this.txtComentario.TabIndex = 15;
+            this.txtComentario.ThemeName = "ControlDefault";
             // 
             // radLabel2
             // 
@@ -534,7 +535,7 @@ namespace Tradex
             this.radLabel2.Size = new System.Drawing.Size(68, 18);
             this.radLabel2.TabIndex = 17;
             this.radLabel2.Text = "Cuenta CUP:";
-            this.radLabel2.ThemeName = "VisualStudio2012Dark";
+            this.radLabel2.ThemeName = "ControlDefault";
             // 
             // radLabel17
             // 
@@ -564,7 +565,7 @@ namespace Tradex
             this.radLabel18.Size = new System.Drawing.Size(69, 18);
             this.radLabel18.TabIndex = 18;
             this.radLabel18.Text = "Cuenta CUC:";
-            this.radLabel18.ThemeName = "VisualStudio2012Dark";
+            this.radLabel18.ThemeName = "ControlDefault";
             // 
             // radLabel19
             // 
@@ -589,25 +590,25 @@ namespace Tradex
             // 
             this.comboCuentaMn.Location = new System.Drawing.Point(15, 54);
             this.comboCuentaMn.Name = "comboCuentaMn";
-            this.comboCuentaMn.Size = new System.Drawing.Size(266, 21);
+            this.comboCuentaMn.Size = new System.Drawing.Size(266, 20);
             this.comboCuentaMn.TabIndex = 19;
-            this.comboCuentaMn.ThemeName = "VisualStudio2012Dark";
+            this.comboCuentaMn.ThemeName = "ControlDefault";
             // 
             // comboCuentaMlc
             // 
             this.comboCuentaMlc.Location = new System.Drawing.Point(12, 105);
             this.comboCuentaMlc.Name = "comboCuentaMlc";
-            this.comboCuentaMlc.Size = new System.Drawing.Size(269, 21);
+            this.comboCuentaMlc.Size = new System.Drawing.Size(269, 20);
             this.comboCuentaMlc.TabIndex = 20;
-            this.comboCuentaMlc.ThemeName = "VisualStudio2012Dark";
+            this.comboCuentaMlc.ThemeName = "ControlDefault";
             // 
             // comboMonedas
             // 
             this.comboMonedas.Location = new System.Drawing.Point(14, 107);
             this.comboMonedas.Name = "comboMonedas";
-            this.comboMonedas.Size = new System.Drawing.Size(185, 21);
+            this.comboMonedas.Size = new System.Drawing.Size(185, 20);
             this.comboMonedas.TabIndex = 22;
-            this.comboMonedas.ThemeName = "VisualStudio2012Dark";
+            this.comboMonedas.ThemeName = "ControlDefault";
             this.comboMonedas.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.comboMonedas_SelectedIndexChanged);
             // 
             // radLabel20
@@ -619,7 +620,7 @@ namespace Tradex
             this.radLabel20.Size = new System.Drawing.Size(105, 18);
             this.radLabel20.TabIndex = 21;
             this.radLabel20.Text = "Moneda Alternativa";
-            this.radLabel20.ThemeName = "VisualStudio2012Dark";
+            this.radLabel20.ThemeName = "ControlDefault";
             // 
             // radLabel21
             // 
@@ -648,6 +649,7 @@ namespace Tradex
             this.radDateTimeFechaDocumento.TabIndex = 23;
             this.radDateTimeFechaDocumento.TabStop = false;
             this.radDateTimeFechaDocumento.Text = "viernes, 11 de noviembre de 2016";
+            this.radDateTimeFechaDocumento.ThemeName = "ControlDefault";
             this.radDateTimeFechaDocumento.Value = new System.DateTime(2016, 11, 11, 10, 2, 36, 76);
             // 
             // radLabel22
@@ -659,7 +661,7 @@ namespace Tradex
             this.radLabel22.Size = new System.Drawing.Size(34, 18);
             this.radLabel22.TabIndex = 24;
             this.radLabel22.Text = "Filtro:";
-            this.radLabel22.ThemeName = "VisualStudio2012Dark";
+            this.radLabel22.ThemeName = "ControlDefault";
             // 
             // radLabel23
             // 
@@ -684,10 +686,10 @@ namespace Tradex
             // 
             this.comboEntidadCliente.Location = new System.Drawing.Point(88, 63);
             this.comboEntidadCliente.Name = "comboEntidadCliente";
-            this.comboEntidadCliente.Size = new System.Drawing.Size(300, 21);
+            this.comboEntidadCliente.Size = new System.Drawing.Size(300, 20);
             this.comboEntidadCliente.TabIndex = 25;
             this.comboEntidadCliente.Text = "radDropDownList1";
-            this.comboEntidadCliente.ThemeName = "VisualStudio2012Dark";
+            this.comboEntidadCliente.ThemeName = "ControlDefault";
             // 
             // txtBuscarEntidad
             // 
@@ -695,6 +697,7 @@ namespace Tradex
             this.txtBuscarEntidad.Name = "txtBuscarEntidad";
             this.txtBuscarEntidad.Size = new System.Drawing.Size(300, 20);
             this.txtBuscarEntidad.TabIndex = 16;
+            this.txtBuscarEntidad.ThemeName = "ControlDefault";
             this.txtBuscarEntidad.TextChanged += new System.EventHandler(this.txtBuscarEntidad_TextChanged);
             // 
             // labelTasaCambioDataToDisplay
@@ -706,7 +709,7 @@ namespace Tradex
             this.labelTasaCambioDataToDisplay.Size = new System.Drawing.Size(9, 18);
             this.labelTasaCambioDataToDisplay.TabIndex = 27;
             this.labelTasaCambioDataToDisplay.Text = " ";
-            this.labelTasaCambioDataToDisplay.ThemeName = "VisualStudio2012Dark";
+            this.labelTasaCambioDataToDisplay.ThemeName = "ControlDefault";
             // 
             // radLabel25
             // 
@@ -736,7 +739,7 @@ namespace Tradex
             this.radLabel26.Size = new System.Drawing.Size(86, 18);
             this.radLabel26.TabIndex = 26;
             this.radLabel26.Text = "Tasa de cambio:";
-            this.radLabel26.ThemeName = "VisualStudio2012Dark";
+            this.radLabel26.ThemeName = "ControlDefault";
             // 
             // radLabel27
             // 
@@ -766,7 +769,7 @@ namespace Tradex
             this.radLabel24.Size = new System.Drawing.Size(57, 18);
             this.radLabel24.TabIndex = 32;
             this.radLabel24.Text = "Entidades:";
-            this.radLabel24.ThemeName = "VisualStudio2012Dark";
+            this.radLabel24.ThemeName = "ControlDefault";
             // 
             // radLabel28
             // 
@@ -800,10 +803,10 @@ namespace Tradex
             this.groupBox1.Controls.Add(this.radLabel7);
             this.groupBox1.Controls.Add(this.txtNoDeControl);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 202);
+            this.groupBox1.Size = new System.Drawing.Size(492, 200);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos generales";
@@ -813,12 +816,13 @@ namespace Tradex
             this.comboalmacenes.Enabled = false;
             this.comboalmacenes.Location = new System.Drawing.Point(15, 49);
             this.comboalmacenes.Name = "comboalmacenes";
-            this.comboalmacenes.Size = new System.Drawing.Size(243, 21);
+            this.comboalmacenes.Size = new System.Drawing.Size(243, 20);
             this.comboalmacenes.TabIndex = 13;
-            this.comboalmacenes.ThemeName = "VisualStudio2012Dark";
+            this.comboalmacenes.ThemeName = "ControlDefault";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.93657F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.06343F));
@@ -843,10 +847,10 @@ namespace Tradex
             this.groupBox3.Controls.Add(this.radLabel18);
             this.groupBox3.Controls.Add(this.comboCuentaMlc);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox3.Location = new System.Drawing.Point(3, 211);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox3.Location = new System.Drawing.Point(4, 211);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(494, 166);
+            this.groupBox3.Size = new System.Drawing.Size(492, 165);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cuentas";
@@ -864,10 +868,10 @@ namespace Tradex
             this.groupBox2.Controls.Add(this.labelTasaCambioDataToDisplay);
             this.groupBox2.Controls.Add(this.radLabel13);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(503, 3);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.Location = new System.Drawing.Point(503, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(496, 202);
+            this.groupBox2.Size = new System.Drawing.Size(495, 200);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entidad y Moneda";
@@ -881,7 +885,7 @@ namespace Tradex
             this.radLabelMonedaContable.Size = new System.Drawing.Size(96, 18);
             this.radLabelMonedaContable.TabIndex = 29;
             this.radLabelMonedaContable.Text = "Moneda Contable";
-            this.radLabelMonedaContable.ThemeName = "VisualStudio2012Dark";
+            this.radLabelMonedaContable.ThemeName = "ControlDefault";
             // 
             // radLabel32
             // 
@@ -911,7 +915,7 @@ namespace Tradex
             this.radLabel29.Size = new System.Drawing.Size(98, 18);
             this.radLabel29.TabIndex = 28;
             this.radLabel29.Text = "Moneda Contable:";
-            this.radLabel29.ThemeName = "VisualStudio2012Dark";
+            this.radLabel29.ThemeName = "ControlDefault";
             // 
             // radLabel30
             // 
@@ -941,10 +945,10 @@ namespace Tradex
             this.groupBox4.Controls.Add(this.radLabel15);
             this.groupBox4.Controls.Add(this.txtComentario);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox4.Location = new System.Drawing.Point(503, 211);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(496, 166);
+            this.groupBox4.Size = new System.Drawing.Size(495, 165);
             this.groupBox4.TabIndex = 36;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Entidades";
@@ -1006,7 +1010,7 @@ namespace Tradex
             this.RootElement.MaxSize = new System.Drawing.Size(0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tradex";
-            this.ThemeName = "VisualStudio2012Dark";
+            this.ThemeName = "ControlDefault";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.comboconceptos)).EndInit();

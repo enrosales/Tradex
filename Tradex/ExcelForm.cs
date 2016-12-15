@@ -244,7 +244,7 @@ namespace Tradex
             cargarExcelModelo.CheckPathExists = true;
            // cargarExcelModelo.Filter = "Xls|*.xls|Xlsx|*.Xlsx";
             //(*.txt)|*.txt
-            cargarExcelModelo.Filter = "Excel files(*.xls)|*.Xlsx";
+            cargarExcelModelo.Filter = "Excel files(*.Xlsx)|*.Xlsx|Excel files(*.Xls)|*.Xls";
             cargarExcelModelo.Title = "Busque la dirección donde se encuentra el modelo excel con las recepciones";
             cargarExcelModelo.ShowDialog();
 
@@ -461,7 +461,7 @@ namespace Tradex
                 if (lrepfinal.Any())
                 {
                     repetidos = false;
-                    MessageBox.Show(@"Hay productos repetidos.Se deshabilitara la generación de la recepcion.");
+                    MessageBox.Show(@"Existen productos repetidos.Se deshabilitará la generación de la recepción.");
                     return lrepfinal.Distinct().ToList();
                 }
 

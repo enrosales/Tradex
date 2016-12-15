@@ -10,6 +10,7 @@ namespace Tradex
         private Versat _versat;
         private int entidad;
         private CuentaContable cc;
+        
         public Clasificador(int entidad, CuentaContable cc)
         {
             InitializeComponent();
@@ -20,10 +21,12 @@ namespace Tradex
 
         private void Clasificador_Load(object sender, EventArgs e)
         {
-            radTreeView1.TreeViewElement.AllowAlternatingRowColor = true;
             txtClave.Enabled = false;
             txtDescrip.Enabled = false;
             txtNaturaleza.Enabled = false;
+            
+            radTreeView1.TreeViewElement.AllowAlternatingRowColor = true;
+
             CargarPadres();
         }
         

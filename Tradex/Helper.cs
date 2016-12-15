@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Telerik.WinControls.UI;
 using Tradex.Models;
 using Tradex.Properties;
@@ -13,8 +14,8 @@ namespace Tradex
 
         public static void AddElemenet(RadListDataItem item, RadDropDownList l)
         {
-            l.Items.Add(item);
-           // l.SelectedItem = item;
+                l.Items.Add(item);
+                // l.SelectedItem = item;
         }
 
         public static List<RadListDataItem> FormarCombo<T>(List<T> lista, string parametroElegible)

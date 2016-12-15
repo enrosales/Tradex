@@ -460,7 +460,7 @@ namespace Tradex
             this.RootElement.MaxSize = new System.Drawing.Size(0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "   Conectar con Base de Datos";
-            this.ThemeName = "VisualStudio2012Light";
+            this.ThemeName = "ControlDefault";
             this.Load += new System.EventHandler(this.RadForm1_Load);
             this.panelRemoto.ResumeLayout(false);
             this.panelRemoto.PerformLayout();

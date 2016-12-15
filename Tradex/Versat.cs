@@ -149,7 +149,12 @@ namespace Tradex
 
             List<object[]> total = SqlDataReader(new[] { "idsubelemento", "codigo", "descripcion" },
                _tradexEntities.Database.Connection, query);
-
+            //annadiendo un elemento vacio que permita dejarlo vacio en el combo
+            object[] vacio = new object[3];
+            vacio[0] = "";
+            vacio[1] = "";
+            vacio[2] = "";
+            total.Insert(0,vacio);
             return total;
         }
 
@@ -159,7 +164,12 @@ namespace Tradex
 
             List<object[]> total = SqlDataReader(new[] { "idsubelemento", "codigo", "descripcion" },
                _tradexEntities.Database.Connection, query);
-
+            //annadiendo un elemento vacio que permita dejarlo vacio en el combo
+            object[] vacio = new object[3];
+            vacio[0] = "";
+            vacio[1] = "";
+            vacio[2] = "";
+            total.Insert(0, vacio);
             return total;
         }
 

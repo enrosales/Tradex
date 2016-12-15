@@ -27,7 +27,7 @@ namespace Tradex
         private void ProductDetails_Load(object sender, EventArgs e)
         {
             
-            ThemeName = visualStudio2012DarkTheme1.ThemeName;
+           // ThemeName = visualStudio2012DarkTheme1.ThemeName;
 
             comboUmo.DataSource = _versat.ComboUMO();
 
@@ -36,7 +36,6 @@ namespace Tradex
             comboCuentaCUC.DataSource = _versat.ComboCuentaCUP(idAlmacen);
 
             comboSubCUP.DataSource = _versat.ComboSubCUP();
-
             comboSubCUC.DataSource = _versat.ComboSubCUC();
 
             if (rowindex == -1)
@@ -177,8 +176,10 @@ namespace Tradex
             var idCuentaCUC = (RadListDataItem)comboCuentaCUC.SelectedItem;
             string idCuentaRealCUC = idCuentaCUC.Text.Split('*')[0];
             //en el texto: codigo y descripcion
+            
             string idSubRealCUC="",idSubRealCUP= "";
             RadListDataItem idSubCUC=null, idSubCUP = null;
+            
             if (comboSubCUP.SelectedItem != null)
             {
                 idSubCUP = (RadListDataItem)comboSubCUP.SelectedItem.DataBoundItem;
