@@ -32,9 +32,9 @@ namespace Tradex
             comboUmo.DataSource = _versat.ComboUMO();
 
             comboCuentaCUP.DataSource = _versat.ComboCuentaCUP(idAlmacen);
-
             comboCuentaCUC.DataSource = _versat.ComboCuentaCUP(idAlmacen);
-
+            //Selecciono la opcion 1 para que muestre por default la opcion de las monedas en CUC antes que el CUp para evitar errores humanos
+            comboCuentaCUC.SelectedIndex = 1;
             comboSubCUP.DataSource = _versat.ComboSubCUP();
             comboSubCUC.DataSource = _versat.ComboSubCUC();
 
