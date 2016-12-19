@@ -274,6 +274,11 @@ namespace Tradex
             try
             {
                 List<ProductoDetalle> ListadoDeProductos = new List<ProductoDetalle>();
+                
+                //esta lista no cumple funcion objetiva es solo para ir annadiendo a ella los productos con sus codigos originales
+                //a la hora de mostrar los repetidos que muestre los originales no los codigos ya modificados
+                List<ProductoDetalle> ListadoProductosOriginalExcel = new List<ProductoDetalle>();
+
                 Object[,] saRet;
                 saRet = (Object[,])rango.get_Value(Missing.Value);
                 List<ProductoDetalle> lrepfinal = new List<ProductoDetalle>(); 
@@ -326,6 +331,9 @@ namespace Tradex
                     importeMn = double.Parse(saRet[rowCounter, colImporteMn].ToString());
                     importeCuc = double.Parse(saRet[rowCounter, colImporteCuc].ToString());
                     ProductoDetalle pd = new ProductoDetalle();
+                    //(si existe el prod en Versat y la existencia NO es 0 ) O si
+                    //(si existe el prod en Versat y la descripcion es distinta a la del excel )
+                    //Si entra aqui es porque se crea el producto como nuevo
                     if ((_versat.ExisteProducto(codProd) == 1 && !_versat.ExistenciaZeero(codProd, idAlmacen)) || (_versat.ExisteProducto(codProd) == 1 && _versat.GetDesc(codProd) != descrip)) // si existe el producto en el versat
                     {
                         //lo que tengo que hacer es coger el codigo de ese producto y concatenarle _contador al final
@@ -342,21 +350,27 @@ namespace Tradex
 
                                 string codigo = datos[0].ToString();
                                 int index = 0;
+                                
                                 string nuevoCodigo = codigo + "-";
+                                
                                 string temp;
+                                
                                 while (true)
                                 {
                                     temp = nuevoCodigo + index;
                                     // si es la primera vez busco el codigo del excel
                                     if (index == 0)
                                     {
-                                        if (!_versat.ExisteCodigo(codigo) && !IsInCodigos(codigo,codigos))
+                                        //si no existe el codigo ni en el versat ni en el excel
+                                        if (!_versat.ExisteCodigo(codigo) && !IsInCodigos(codigo, codigos))
                                         {
                                             //si no existe entonces este codigo lo puedo utilizar 
                                             temp = codigo;
                                             break;
                                         }
                                     }
+                                        // si no es la primera vez el codigo que busco es el que estoy formando yo con _1 etc
+                                    // si no existe ese codigo ni en versat ni mas abajo en el excel
                                     else if (index != 0 && !_versat.ExisteCodigo(temp) && !IsInCodigos(temp, codigos))
                                     {
                                         break;
@@ -366,7 +380,7 @@ namespace Tradex
 
                                 pd.codigo = temp;
                             }
-                          
+
                             //Encoding enc = new UTF8Encoding(true, true);
                             
                           //  if (datos != null && datos.Length > 1)
@@ -434,8 +448,12 @@ namespace Tradex
                         pd.ImporteMlc = importeCuc;
                         pd.importeMn = importeMn;
                         ListadoDeProductos.Add(pd);
+                        
+                        //modifico la descripcion del producto y le pongo como viene en el excel para si acaso algo mostrarlo como repetido con su codigo original del excel
+                        pd.Codigo = codProd;
+                        ListadoProductosOriginalExcel.Add(pd);
                     }
-                    //Si no existe o si existe el producto la existencia  es 0 y las descripciones son iguales=>Mantener producto.
+                    //(Si no existe en versat ) o (si existe el producto en versat y la existencia  es 0 y las descripciones son iguales=>Mantener producto.
                     else if ((_versat.ExisteProducto(codProd)==-1)||(_versat.ExisteProducto(codProd) == 1 && _versat.ExistenciaZeero(codProd,idAlmacen) && (_versat.GetDesc(codProd)==descrip)))
                     {
                         //mantener prod con mismo codigo igual q en el versat 
@@ -447,9 +465,11 @@ namespace Tradex
                         pd.importeMn = importeMn;
                         pd.Existencia = cantidad;
                         ListadoDeProductos.Add(pd);
+                        
+                        ListadoProductosOriginalExcel.Add(pd);
                     }
 
-                    List<ProductoDetalle>lrep = ListadoDeProductos.Where(a => a.codigo == pd.codigo).ToList();
+                    List<ProductoDetalle> lrep = ListadoProductosOriginalExcel.Where(a => a.codigo == pd.codigo).ToList();
                     if (lrep.Count() > 1)
                     {
                        lrepfinal.AddRange(lrep.Distinct());
@@ -462,7 +482,7 @@ namespace Tradex
                 if (lrepfinal.Any())
                 {
                     repetidos = false;
-                    MessageBox.Show(@"Existen productos repetidos.Se deshabilitará la generación de la recepción.");
+                    MessageBox.Show(@"Los siguientes productos tienen códigos repetidos en el excel. Se deshabilitará la generación de la recepción.");
                     return lrepfinal.Distinct().ToList();
                 }
 
@@ -489,6 +509,16 @@ namespace Tradex
         private bool repetidos;
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            List<ProductoDetalle> lrep = new List<ProductoDetalle>();
+            lrep = ListadoDeProductos.Where(a => a.CuentaCuc == null || a.CuentaCup == null).ToList();
+            if (lrep.Any())
+            {
+                MessageBox.Show("Hay productos sin cuentas contables asociadas en el listado. " +
+                                "Para completar la exportación, todos los productos deben tener una cuenta en CUC y en CUP asociada.");
+                return;
+            }
+
+
             string ruta = GuardarFicheroTxt();
             if(ruta == null)
                 return;
