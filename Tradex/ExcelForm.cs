@@ -332,9 +332,10 @@ namespace Tradex
                     importeCuc = double.Parse(saRet[rowCounter, colImporteCuc].ToString());
                     ProductoDetalle pd = new ProductoDetalle();
                     //(si existe el prod en Versat y la existencia NO es 0 ) O si
-                    //(si existe el prod en Versat y la descripcion es distinta a la del excel )
+                    //(si existe el prod en Versat y la descripcion es distinta a la del excel ) y la um es diferente a la del excel
                     //Si entra aqui es porque se crea el producto como nuevo
-                    if ((_versat.ExisteProducto(codProd) == 1 && !_versat.ExistenciaZeero(codProd, idAlmacen)) || (_versat.ExisteProducto(codProd) == 1 && _versat.GetDesc(codProd) != descrip)) // si existe el producto en el versat
+                    if ((_versat.ExisteProducto(codProd) == 1 && !_versat.ExistenciaZeero(codProd, idAlmacen)) 
+                        || (_versat.ExisteProducto(codProd) == 1 && _versat.GetDesc(codProd) != descrip)||(_versat.ExisteProducto(codProd) == 1  && Um!=_versat.GetUM(codProd))) // si existe el producto en el versat
                     {
                         //lo que tengo que hacer es coger el codigo de ese producto y concatenarle _contador al final
                        
@@ -351,13 +352,13 @@ namespace Tradex
                                 string codigo = datos[0].ToString();
                                 int index = 0;
                                 
-                                string nuevoCodigo = codigo + "-";
+                                string nuevoCodigo = codigo;
                                 
                                 string temp;
                                 
                                 while (true)
                                 {
-                                    temp = nuevoCodigo + index;
+                                   
                                     // si es la primera vez busco el codigo del excel
                                     if (index == 0)
                                     {
@@ -371,7 +372,9 @@ namespace Tradex
                                     }
                                         // si no es la primera vez el codigo que busco es el que estoy formando yo con _1 etc
                                     // si no existe ese codigo ni en versat ni mas abajo en el excel
-                                    else if (index != 0 && !_versat.ExisteCodigo(temp) && !IsInCodigos(temp, codigos))
+                                
+                                    temp = AsignarCodigo(nuevoCodigo, index.ToString());
+                                    if (!_versat.ExisteCodigo(temp) && !IsInCodigos(temp, codigos) && !EstaenGen(temp, ListadoDeProductos))
                                     {
                                         break;
                                     }
@@ -450,16 +453,21 @@ namespace Tradex
                         ListadoDeProductos.Add(pd);
                         
                         //modifico la descripcion del producto y le pongo como viene en el excel para si acaso algo mostrarlo como repetido con su codigo original del excel
-                        pd.Codigo = codProd;
-                        ListadoProductosOriginalExcel.Add(pd);
+                        //pd.Codigo = codProd;
+                      //  ProductoDetalle nuevo = pd;
+                        ProductoDetalle nuevo = (ProductoDetalle)pd.Clone(); 
+                        nuevo.codigo = codProd;
+                        ListadoProductosOriginalExcel.Add(nuevo);
                     }
                     //(Si no existe en versat ) o (si existe el producto en versat y la existencia  es 0 y las descripciones son iguales=>Mantener producto.
-                    else if ((_versat.ExisteProducto(codProd)==-1)||(_versat.ExisteProducto(codProd) == 1 && _versat.ExistenciaZeero(codProd,idAlmacen) && (_versat.GetDesc(codProd)==descrip)))
+                    else if ((_versat.ExisteProducto(codProd)==-1)
+                        ||(_versat.ExisteProducto(codProd) == 1 && _versat.ExistenciaZeero(codProd,idAlmacen)
+                        && (_versat.GetDesc(codProd)==descrip)))
                     {
                         //mantener prod con mismo codigo igual q en el versat 
                         pd.Codigo = codProd;
                         pd.Umo = Um;
-                        pd.Descripcion = descrip;
+                        pd.Descripcion = _versat.GetDesc(codProd);
                         pd.Cantidad = cantidad;
                         pd.ImporteMlc = importeCuc;
                         pd.importeMn = importeMn;
@@ -502,7 +510,8 @@ namespace Tradex
                 em.KillProcess();
                 em.ReleaseObject(excel);
             }
-            
+            em.KillProcess();
+            em.ReleaseObject(excel);
             return null;
         }
 
@@ -683,6 +692,58 @@ namespace Tradex
         private bool IsInCodigos(string codigo, List<string> codigos)
         {
             if (codigos.Any(a => a == codigo))
+                return true;
+            return false;
+        }
+
+        private string AsignarCodigo(string oldcodigo,string newcod)
+        {
+            if (!oldcodigo.Contains("-"))
+            {
+                return oldcodigo+"-" + newcod;
+            }
+           
+           string ultimaParte = RecorrerAlreves(oldcodigo)[1];
+           string primeraParte = RecorrerAlreves(oldcodigo)[0];
+           if (IsNumero(ultimaParte))
+               return primeraParte + (Suma(ultimaParte,newcod));
+           return   oldcodigo+"-" + newcod;
+        }
+
+        int Suma(string prim,string seg)
+        {
+            if (seg == "0")
+                seg = "1";
+            return (int)Double.Parse(prim) + (int)Double.Parse(seg);
+            
+        }
+
+        string[] RecorrerAlreves(string oldcodigo)
+        {
+            string[] partes = oldcodigo.Split('-');
+            string ultimoelem = partes[partes.Count() - 1];
+            string primeraparte = "";
+            for (int i = 0; i < partes.Count() - 1; i++)
+            {
+                primeraparte += partes[i] + "-";
+            }
+           // primeraparte.Remove(primeraparte.Count() - 1);
+            return new[] {primeraparte, ultimoelem};
+        }
+
+        private bool IsNumero(string x)
+        {
+            double s=0;
+            if (double.TryParse(x, out s))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool EstaenGen(string codigo,List<ProductoDetalle> prods)
+        {
+            if (prods.Any(a => a.codigo == codigo))
                 return true;
             return false;
         }

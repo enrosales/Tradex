@@ -466,6 +466,33 @@ namespace Tradex
             }
         }
 
+        internal string GetUM(string codigoProducto)
+        {
+            try
+            {
+                string query =
+                    "SELECT dbo.gen_medida.clave FROM dbo.gen_producto " +
+                    "INNER JOIN dbo.gen_medida ON dbo.gen_producto.idmedida = dbo.gen_medida.idmedida " +
+                    "WHERE dbo.gen_producto.codigo = '" + codigoProducto + "'";
+          
+                var existencia = _tradexEntities.Database.SqlQuery<string>(query);
+                var x = existencia.ToList();
+                string desc = x[0].ToString();
+
+                string propEncodeString = string.Empty;
+                byte[] utf8_Bytes = new byte[desc.Length];
+                for (int i = 0; i < desc.Length; ++i)
+                    utf8_Bytes[i] = (byte)desc[i];
+
+                propEncodeString = Encoding.UTF8.GetString(utf8_Bytes, 0, utf8_Bytes.Length);
+                return propEncodeString;
+            }
+            catch (Exception e)
+            {
+                throw new Exception();
+            }
+        }
+
         #endregion
 
        internal object ComboUMO()

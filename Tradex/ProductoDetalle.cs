@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Tradex
 {
-    public class ProductoDetalle //: INotifyPropertyChanged
+    public class ProductoDetalle : ICloneable //: INotifyPropertyChanged
     {
         public string codigo { get; set; }
         public string descripcion { get; set; }
@@ -199,5 +200,23 @@ namespace Tradex
         #endregion
 
         */
+        public object Clone()
+        {
+            return new ProductoDetalle
+            {
+                
+             codigo = codigo,
+             descripcion=descripcion,
+             umo=umo ,
+             cuentaCup= cuentaCup,
+            cuentaCuc=cuentaCuc,
+            subelementoCup = subelementoCup,
+            subelementoCuc = subelementoCuc,
+            cantidad = cantidad,
+            importeMn = importeMn,
+            importeMlc = importeMlc,
+            existencia = existencia,
+            };
+        }
     }
 }
