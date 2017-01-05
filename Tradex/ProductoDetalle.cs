@@ -16,6 +16,8 @@ namespace Tradex
         public double importeMlc { get; set; }
         public double importeMn { get; set; }
         public double existencia { get; set; }
+        public double precioMNFact { get; set; }
+        public double precioCUCFact { get; set; }
 
         public ProductoDetalle()
         {
@@ -26,7 +28,7 @@ namespace Tradex
         }
 
         public ProductoDetalle(string codigo, string descripcion, string umo = null, string cuentaCup = null, string cuentaCuc = null,
-           string subElemCup = null, string subElemCuc = null, double cantidad = 0, double importeMn = 0, double importeMlc = 0, double existencia = 0)
+           string subElemCup = null, string subElemCuc = null, double cantidad = 0, double importeMn = 0, double importeMlc = 0, double existencia = 0, double precioMNFact = 0, double precioCUCFact=0)
         {
             this.codigo = codigo;
             this.descripcion = descripcion;
@@ -39,6 +41,8 @@ namespace Tradex
             this.importeMn = importeMn;
             this.importeMlc = importeMlc;
             this.existencia = existencia;
+            this.precioMNFact = precioMNFact;
+            this.precioCUCFact = precioCUCFact;
         }
 
         public string Descripcion
@@ -184,6 +188,32 @@ namespace Tradex
             }
         }
 
+        public double PrecioMNFact
+        {
+            get { return precioMNFact; }
+            set
+            {
+                if (precioMNFact != value)
+                {
+                    precioMNFact = value;
+                    //  OnPropertyChanged("existencia");
+                }
+            }
+        }
+
+        public double PrecioCUCFact
+        {
+            get { return precioCUCFact; }
+            set
+            {
+                if (precioCUCFact != value)
+                {
+                    precioCUCFact = value;
+                    //  OnPropertyChanged("existencia");
+                }
+            }
+        }
+
      /*   #region INotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -216,6 +246,8 @@ namespace Tradex
             importeMn = importeMn,
             importeMlc = importeMlc,
             existencia = existencia,
+             precioCUCFact = precioCUCFact,
+             precioMNFact = precioMNFact,
             };
         }
     }

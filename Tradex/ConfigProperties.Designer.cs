@@ -40,6 +40,10 @@ namespace Tradex
             this.txtUnidad = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxpreciomn = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxpreciocuc = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtColumnaFin = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtColumnaInicio = new System.Windows.Forms.TextBox();
@@ -137,6 +141,10 @@ namespace Tradex
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBoxpreciomn);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.textBoxpreciocuc);
+            this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txtColumnaFin);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtColumnaInicio);
@@ -162,11 +170,45 @@ namespace Tradex
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox2.Location = new System.Drawing.Point(12, 106);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(557, 204);
+            this.groupBox2.Size = new System.Drawing.Size(557, 295);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuración del excel";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // textBoxpreciomn
+            // 
+            this.textBoxpreciomn.Location = new System.Drawing.Point(433, 202);
+            this.textBoxpreciomn.Name = "textBoxpreciomn";
+            this.textBoxpreciomn.Size = new System.Drawing.Size(100, 20);
+            this.textBoxpreciomn.TabIndex = 25;
+            this.textBoxpreciomn.TextChanged += new System.EventHandler(this.textBoxpreciomn_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(277, 205);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(141, 13);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Columna Precio MN(FACT):";
+            // 
+            // textBoxpreciocuc
+            // 
+            this.textBoxpreciocuc.Location = new System.Drawing.Point(433, 244);
+            this.textBoxpreciocuc.Name = "textBoxpreciocuc";
+            this.textBoxpreciocuc.Size = new System.Drawing.Size(100, 20);
+            this.textBoxpreciocuc.TabIndex = 23;
+            this.textBoxpreciocuc.TextChanged += new System.EventHandler(this.textBoxpreciocuc_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(273, 251);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(145, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Columna Precio CUC(FACT):";
             // 
             // txtColumnaFin
             // 
@@ -359,7 +401,7 @@ namespace Tradex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 331);
+            this.ClientSize = new System.Drawing.Size(599, 434);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ConfigProperties";
@@ -413,5 +455,9 @@ namespace Tradex
         private Label label13;
         private TextBox txtColumnaInicio;
         private Label label14;
+        private TextBox textBoxpreciomn;
+        private Label label16;
+        private TextBox textBoxpreciocuc;
+        private Label label15;
     }
 }

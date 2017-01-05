@@ -94,7 +94,7 @@ namespace Tradex
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.02804F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.97196F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(893, 535);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 535);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
@@ -130,7 +130,7 @@ namespace Tradex
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(887, 160);
+            this.groupBox1.Size = new System.Drawing.Size(894, 160);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros del excel";
@@ -161,7 +161,7 @@ namespace Tradex
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(131, 23);
             this.btnExportar.TabIndex = 23;
-            this.btnExportar.Text = "Exportar comprobante";
+            this.btnExportar.Text = "Exportar documentos";
             this.btnExportar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
@@ -383,7 +383,7 @@ namespace Tradex
             this.radGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radGridView1.Location = new System.Drawing.Point(3, 169);
             this.radGridView1.Name = "radGridView1";
-            this.radGridView1.Size = new System.Drawing.Size(887, 363);
+            this.radGridView1.Size = new System.Drawing.Size(894, 363);
             this.radGridView1.TabIndex = 2;
             this.radGridView1.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.radGridView1_CellDoubleClick);
             // 
@@ -396,7 +396,7 @@ namespace Tradex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 535);
+            this.ClientSize = new System.Drawing.Size(900, 535);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ExcelForm";
             // 

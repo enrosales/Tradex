@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Facturas.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="fac_conceptoventa">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idconfig" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="idconceptofin" Type="int" Nullable="false" />
+          <Property Name="idcuentacont" Type="int" />
+          <Property Name="codigo" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="enexperimento" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fac_Talon">
+          <Key>
+            <PropertyRef Name="idtalon" />
+          </Key>
+          <Property Name="idtalon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idformato" Type="int" Nullable="false" />
+          <Property Name="posicion" Type="int" Nullable="false" />
+          <Property Name="CharBefore" Type="int" Nullable="false" />
+          <Property Name="Charafter" Type="int" Nullable="false" />
+          <Property Name="idtipotalon" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gen_medida">
+          <Key>
+            <PropertyRef Name="idmedida" />
+          </Key>
+          <Property Name="idmedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clave" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gen_producto">
+          <Key>
+            <PropertyRef Name="idproducto" />
+          </Key>
+          <Property Name="idproducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idmedida" Type="int" Nullable="false" />
+          <Property Name="idnivelclas" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="precio" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="gen_usuario">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="loginusuario" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="128" />
+          <Property Name="intentos" Type="int" Nullable="false" />
+          <Property Name="expira" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inv_documento">
+          <Key>
+            <PropertyRef Name="iddocumento" />
+          </Key>
+          <Property Name="iddocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="smalldatetime" Nullable="false" />
+          <Property Name="sumacantidad" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="sumaimporte" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="idunidad" Type="int" Nullable="false" />
+          <Property Name="idestado" Type="int" Nullable="false" />
+          <Property Name="idusuario" Type="int" Nullable="false" />
+          <Property Name="sumaexistencia" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="idconcepto" Type="int" Nullable="false" />
+          <Property Name="numctrl" Type="varchar" MaxLength="50" />
+          <Property Name="idsubsistema" Type="tinyint" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="idusrconfirmar" Type="int" />
+          <Property Name="crc" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inv_movimiento">
+          <Key>
+            <PropertyRef Name="idmovimiento" />
+          </Key>
+          <Property Name="idmovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="importe" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="existencia" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="iddocumento" Type="int" Nullable="false" />
+          <Property Name="idproducto" Type="int" Nullable="false" />
+          <Property Name="idmedida" Type="int" Nullable="false" />
+          <Property Name="crc" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_gen_producto_gen_medida">
+          <End Role="gen_medida" Type="Self.gen_medida" Multiplicity="1" />
+          <End Role="gen_producto" Type="Self.gen_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_medida">
+              <PropertyRef Name="idmedida" />
+            </Principal>
+            <Dependent Role="gen_producto">
+              <PropertyRef Name="idmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_documento_gen_usuario">
+          <End Role="gen_usuario" Type="Self.gen_usuario" Multiplicity="1" />
+          <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="inv_documento">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_documento_gen_usuario1">
+          <End Role="gen_usuario" Type="Self.gen_usuario" Multiplicity="0..1" />
+          <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="inv_documento">
+              <PropertyRef Name="idusrconfirmar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_movimiento_gen_medida">
+          <End Role="gen_medida" Type="Self.gen_medida" Multiplicity="1" />
+          <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_medida">
+              <PropertyRef Name="idmedida" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="idmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_movimiento_gen_producto">
+          <End Role="gen_producto" Type="Self.gen_producto" Multiplicity="1" />
+          <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_producto">
+              <PropertyRef Name="idproducto" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="idproducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_movimiento_inv_documento">
+          <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="1" />
+          <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inv_documento">
+              <PropertyRef Name="iddocumento" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="iddocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FacturasStoreContainer">
+          <EntitySet Name="fac_conceptoventa" EntityType="Self.fac_conceptoventa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fac_Talon" EntityType="Self.Fac_Talon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gen_medida" EntityType="Self.gen_medida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gen_producto" EntityType="Self.gen_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gen_usuario" EntityType="Self.gen_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inv_documento" EntityType="Self.inv_documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inv_movimiento" EntityType="Self.inv_movimiento" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_gen_producto_gen_medida" Association="Self.FK_gen_producto_gen_medida">
+            <End Role="gen_medida" EntitySet="gen_medida" />
+            <End Role="gen_producto" EntitySet="gen_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_documento_gen_usuario" Association="Self.FK_inv_documento_gen_usuario">
+            <End Role="gen_usuario" EntitySet="gen_usuario" />
+            <End Role="inv_documento" EntitySet="inv_documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_documento_gen_usuario1" Association="Self.FK_inv_documento_gen_usuario1">
+            <End Role="gen_usuario" EntitySet="gen_usuario" />
+            <End Role="inv_documento" EntitySet="inv_documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_movimiento_gen_medida" Association="Self.FK_inv_movimiento_gen_medida">
+            <End Role="gen_medida" EntitySet="gen_medida" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_movimiento_gen_producto" Association="Self.FK_inv_movimiento_gen_producto">
+            <End Role="gen_producto" EntitySet="gen_producto" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_movimiento_inv_documento" Association="Self.FK_inv_movimiento_inv_documento">
+            <End Role="inv_documento" EntitySet="inv_documento" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Facturas" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="facturasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fac_Talon" EntityType="Facturas.Fac_Talon" />
+          <EntitySet Name="gen_producto" EntityType="Facturas.gen_producto" />
+          <EntitySet Name="inv_documento" EntityType="Facturas.inv_documento" />
+          <EntitySet Name="inv_movimiento" EntityType="Facturas.inv_movimiento" />
+          <AssociationSet Name="FK_inv_movimiento_gen_producto" Association="Facturas.FK_inv_movimiento_gen_producto">
+            <End Role="gen_producto" EntitySet="gen_producto" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_movimiento_inv_documento" Association="Facturas.FK_inv_movimiento_inv_documento">
+            <End Role="inv_documento" EntitySet="inv_documento" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+          <EntitySet Name="gen_usuario" EntityType="Facturas.gen_usuario" />
+          <AssociationSet Name="FK_inv_documento_gen_usuario" Association="Facturas.FK_inv_documento_gen_usuario">
+            <End Role="gen_usuario" EntitySet="gen_usuario" />
+            <End Role="inv_documento" EntitySet="inv_documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_documento_gen_usuario1" Association="Facturas.FK_inv_documento_gen_usuario1">
+            <End Role="gen_usuario" EntitySet="gen_usuario" />
+            <End Role="inv_documento" EntitySet="inv_documento" />
+          </AssociationSet>
+          <EntitySet Name="gen_medida" EntityType="Facturas.gen_medida" />
+          <AssociationSet Name="FK_gen_producto_gen_medida" Association="Facturas.FK_gen_producto_gen_medida">
+            <End Role="gen_medida" EntitySet="gen_medida" />
+            <End Role="gen_producto" EntitySet="gen_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inv_movimiento_gen_medida" Association="Facturas.FK_inv_movimiento_gen_medida">
+            <End Role="gen_medida" EntitySet="gen_medida" />
+            <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+          </AssociationSet>
+          <EntitySet Name="fac_conceptoventa" EntityType="Facturas.fac_conceptoventa" />
+        </EntityContainer>
+        <EntityType Name="Fac_Talon">
+          <Key>
+            <PropertyRef Name="idtalon" />
+          </Key>
+          <Property Name="idtalon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idformato" Type="Int32" Nullable="false" />
+          <Property Name="posicion" Type="Int32" Nullable="false" />
+          <Property Name="CharBefore" Type="Int32" Nullable="false" />
+          <Property Name="Charafter" Type="Int32" Nullable="false" />
+          <Property Name="idtipotalon" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gen_producto">
+          <Key>
+            <PropertyRef Name="idproducto" />
+          </Key>
+          <Property Name="idproducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idmedida" Type="Int32" Nullable="false" />
+          <Property Name="idnivelclas" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="inv_movimiento" Relationship="Facturas.FK_inv_movimiento_gen_producto" FromRole="gen_producto" ToRole="inv_movimiento" />
+          <NavigationProperty Name="gen_medida" Relationship="Facturas.FK_gen_producto_gen_medida" FromRole="gen_producto" ToRole="gen_medida" />
+        </EntityType>
+        <EntityType Name="inv_documento">
+          <Key>
+            <PropertyRef Name="iddocumento" />
+          </Key>
+          <Property Name="iddocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numero" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="sumacantidad" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="sumaimporte" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="idunidad" Type="Int32" Nullable="false" />
+          <Property Name="idestado" Type="Int32" Nullable="false" />
+          <Property Name="idusuario" Type="Int32" Nullable="false" />
+          <Property Name="sumaexistencia" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="idconcepto" Type="Int32" Nullable="false" />
+          <Property Name="numctrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idsubsistema" Type="Byte" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idusrconfirmar" Type="Int32" />
+          <Property Name="crc" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="inv_movimiento" Relationship="Facturas.FK_inv_movimiento_inv_documento" FromRole="inv_documento" ToRole="inv_movimiento" />
+          <NavigationProperty Name="gen_usuario" Relationship="Facturas.FK_inv_documento_gen_usuario" FromRole="inv_documento" ToRole="gen_usuario" />
+          <NavigationProperty Name="gen_usuario1" Relationship="Facturas.FK_inv_documento_gen_usuario1" FromRole="inv_documento" ToRole="gen_usuario" />
+        </EntityType>
+        <EntityType Name="inv_movimiento">
+          <Key>
+            <PropertyRef Name="idmovimiento" />
+          </Key>
+          <Property Name="idmovimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="importe" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="existencia" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="iddocumento" Type="Int32" Nullable="false" />
+          <Property Name="idproducto" Type="Int32" Nullable="false" />
+          <Property Name="idmedida" Type="Int32" Nullable="false" />
+          <Property Name="crc" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="gen_producto" Relationship="Facturas.FK_inv_movimiento_gen_producto" FromRole="inv_movimiento" ToRole="gen_producto" />
+          <NavigationProperty Name="inv_documento" Relationship="Facturas.FK_inv_movimiento_inv_documento" FromRole="inv_movimiento" ToRole="inv_documento" />
+          <NavigationProperty Name="gen_medida" Relationship="Facturas.FK_inv_movimiento_gen_medida" FromRole="inv_movimiento" ToRole="gen_medida" />
+        </EntityType>
+        <Association Name="FK_inv_movimiento_gen_producto">
+          <End Type="Facturas.gen_producto" Role="gen_producto" Multiplicity="1" />
+          <End Type="Facturas.inv_movimiento" Role="inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_producto">
+              <PropertyRef Name="idproducto" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="idproducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_movimiento_inv_documento">
+          <End Type="Facturas.inv_documento" Role="inv_documento" Multiplicity="1" />
+          <End Type="Facturas.inv_movimiento" Role="inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inv_documento">
+              <PropertyRef Name="iddocumento" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="iddocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="gen_usuario">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="loginusuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="intentos" Type="Int32" Nullable="false" />
+          <Property Name="expira" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="inv_documento" Relationship="Facturas.FK_inv_documento_gen_usuario" FromRole="gen_usuario" ToRole="inv_documento" />
+          <NavigationProperty Name="inv_documento1" Relationship="Facturas.FK_inv_documento_gen_usuario1" FromRole="gen_usuario" ToRole="inv_documento" />
+        </EntityType>
+        <Association Name="FK_inv_documento_gen_usuario">
+          <End Type="Facturas.gen_usuario" Role="gen_usuario" Multiplicity="1" />
+          <End Type="Facturas.inv_documento" Role="inv_documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="inv_documento">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_documento_gen_usuario1">
+          <End Type="Facturas.gen_usuario" Role="gen_usuario" Multiplicity="0..1" />
+          <End Type="Facturas.inv_documento" Role="inv_documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_usuario">
+              <PropertyRef Name="idusuario" />
+            </Principal>
+            <Dependent Role="inv_documento">
+              <PropertyRef Name="idusrconfirmar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="gen_medida">
+          <Key>
+            <PropertyRef Name="idmedida" />
+          </Key>
+          <Property Name="idmedida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="gen_producto" Relationship="Facturas.FK_gen_producto_gen_medida" FromRole="gen_medida" ToRole="gen_producto" />
+          <NavigationProperty Name="inv_movimiento" Relationship="Facturas.FK_inv_movimiento_gen_medida" FromRole="gen_medida" ToRole="inv_movimiento" />
+        </EntityType>
+        <Association Name="FK_gen_producto_gen_medida">
+          <End Type="Facturas.gen_medida" Role="gen_medida" Multiplicity="1" />
+          <End Type="Facturas.gen_producto" Role="gen_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_medida">
+              <PropertyRef Name="idmedida" />
+            </Principal>
+            <Dependent Role="gen_producto">
+              <PropertyRef Name="idmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inv_movimiento_gen_medida">
+          <End Type="Facturas.gen_medida" Role="gen_medida" Multiplicity="1" />
+          <End Type="Facturas.inv_movimiento" Role="inv_movimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gen_medida">
+              <PropertyRef Name="idmedida" />
+            </Principal>
+            <Dependent Role="inv_movimiento">
+              <PropertyRef Name="idmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="fac_conceptoventa">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idconfig" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="idconceptofin" Type="Int32" Nullable="false" />
+          <Property Name="idcuentacont" Type="Int32" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="enexperimento" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FacturasStoreContainer" CdmEntityContainer="facturasEntities">
+          <EntitySetMapping Name="Fac_Talon">
+            <EntityTypeMapping TypeName="Facturas.Fac_Talon">
+              <MappingFragment StoreEntitySet="Fac_Talon">
+                <ScalarProperty Name="idtipotalon" ColumnName="idtipotalon" />
+                <ScalarProperty Name="Charafter" ColumnName="Charafter" />
+                <ScalarProperty Name="CharBefore" ColumnName="CharBefore" />
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+                <ScalarProperty Name="idformato" ColumnName="idformato" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="idtalon" ColumnName="idtalon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gen_producto">
+            <EntityTypeMapping TypeName="Facturas.gen_producto">
+              <MappingFragment StoreEntitySet="gen_producto">
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idnivelclas" ColumnName="idnivelclas" />
+                <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inv_documento">
+            <EntityTypeMapping TypeName="Facturas.inv_documento">
+              <MappingFragment StoreEntitySet="inv_documento">
+                <ScalarProperty Name="crc" ColumnName="crc" />
+                <ScalarProperty Name="idusrconfirmar" ColumnName="idusrconfirmar" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idsubsistema" ColumnName="idsubsistema" />
+                <ScalarProperty Name="numctrl" ColumnName="numctrl" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+                <ScalarProperty Name="sumaexistencia" ColumnName="sumaexistencia" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="idestado" ColumnName="idestado" />
+                <ScalarProperty Name="idunidad" ColumnName="idunidad" />
+                <ScalarProperty Name="sumaimporte" ColumnName="sumaimporte" />
+                <ScalarProperty Name="sumacantidad" ColumnName="sumacantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="iddocumento" ColumnName="iddocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inv_movimiento">
+            <EntityTypeMapping TypeName="Facturas.inv_movimiento">
+              <MappingFragment StoreEntitySet="inv_movimiento">
+                <ScalarProperty Name="crc" ColumnName="crc" />
+                <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+                <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+                <ScalarProperty Name="iddocumento" ColumnName="iddocumento" />
+                <ScalarProperty Name="existencia" ColumnName="existencia" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idmovimiento" ColumnName="idmovimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gen_usuario">
+            <EntityTypeMapping TypeName="Facturas.gen_usuario">
+              <MappingFragment StoreEntitySet="gen_usuario">
+                <ScalarProperty Name="expira" ColumnName="expira" />
+                <ScalarProperty Name="intentos" ColumnName="intentos" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="loginusuario" ColumnName="loginusuario" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gen_medida">
+            <EntityTypeMapping TypeName="Facturas.gen_medida">
+              <MappingFragment StoreEntitySet="gen_medida">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fac_conceptoventa">
+            <EntityTypeMapping TypeName="Facturas.fac_conceptoventa">
+              <MappingFragment StoreEntitySet="fac_conceptoventa">
+                <ScalarProperty Name="enexperimento" ColumnName="enexperimento" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="idcuentacont" ColumnName="idcuentacont" />
+                <ScalarProperty Name="idconceptofin" ColumnName="idconceptofin" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idconfig" ColumnName="idconfig" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

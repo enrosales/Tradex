@@ -44,5 +44,11 @@
     <Setting Name="columnaFin" Type="System.String" Scope="User">
       <Value Profile="(Default)">M</Value>
     </Setting>
+    <Setting Name="ColumnaPrecioMNFACT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">K</Value>
+    </Setting>
+    <Setting Name="ColumnaPrecioCUCFACT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">J</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

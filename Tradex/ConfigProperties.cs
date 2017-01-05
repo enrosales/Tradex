@@ -37,6 +37,9 @@ namespace Tradex
             txtColumnaCUC.Text = Settings.Default.columnaImporteCUC;
             txtColumnaCUP.Text = Settings.Default.columnaImporteMN;
 
+            textBoxpreciomn.Text = Settings.Default.ColumnaPrecioMNFACT;
+            textBoxpreciocuc.Text = Settings.Default.ColumnaPrecioCUCFACT;
+
         }
 
         private void txtAlmacen_TextChanged(object sender, EventArgs e)
@@ -144,6 +147,20 @@ namespace Tradex
             Settings.Default.columnaImporteMN = txtColumnaCUP.Text;
             Salvar();
         }
+
+        private void textBoxpreciomn_TextChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ColumnaPrecioMNFACT = textBoxpreciomn.Text;
+            Salvar();
+        }
+
+        private void textBoxpreciocuc_TextChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ColumnaPrecioCUCFACT = textBoxpreciocuc.Text;
+            Salvar();
+        }
+
+        
 
     }
 }

@@ -12,22 +12,19 @@ namespace Tradex.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class gen_producto
+    public partial class inv_movimiento
     {
-        public gen_producto()
-        {
-            this.inv_movimiento = new HashSet<inv_movimiento>();
-        }
-    
+        public int idmovimiento { get; set; }
+        public decimal cantidad { get; set; }
+        public decimal importe { get; set; }
+        public decimal existencia { get; set; }
+        public int iddocumento { get; set; }
         public int idproducto { get; set; }
-        public string codigo { get; set; }
-        public string descripcion { get; set; }
         public int idmedida { get; set; }
-        public int idnivelclas { get; set; }
-        public bool activo { get; set; }
-        public Nullable<decimal> precio { get; set; }
+        public long crc { get; set; }
     
-        public virtual ICollection<inv_movimiento> inv_movimiento { get; set; }
+        public virtual gen_producto gen_producto { get; set; }
+        public virtual inv_documento inv_documento { get; set; }
         public virtual gen_medida gen_medida { get; set; }
     }
 }

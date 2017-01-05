@@ -12,22 +12,14 @@ namespace Tradex.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class gen_producto
+    public partial class fac_conceptoventa
     {
-        public gen_producto()
-        {
-            this.inv_movimiento = new HashSet<inv_movimiento>();
-        }
-    
-        public int idproducto { get; set; }
-        public string codigo { get; set; }
+        public int idconcepto { get; set; }
+        public int idconfig { get; set; }
         public string descripcion { get; set; }
-        public int idmedida { get; set; }
-        public int idnivelclas { get; set; }
-        public bool activo { get; set; }
-        public Nullable<decimal> precio { get; set; }
-    
-        public virtual ICollection<inv_movimiento> inv_movimiento { get; set; }
-        public virtual gen_medida gen_medida { get; set; }
+        public int idconceptofin { get; set; }
+        public Nullable<int> idcuentacont { get; set; }
+        public string codigo { get; set; }
+        public bool enexperimento { get; set; }
     }
 }

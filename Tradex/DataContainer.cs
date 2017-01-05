@@ -10,9 +10,19 @@ namespace Tradex
         public string Bd { get; set; }
         public string Usuario { get; set; }
         public string Password { get; set; }
+
+        public string Iddocumento { get; set; }
+
+       //Datos Factura
+        public string Almacen { get; set; }
+        public string Entidad { get; set; }
+        public string Talon { get; set; }
+        public string NombHecho { get; set; }
        
        public string ConectionString { get; set; }
 
+       public object EntidadesCliente { get; set; }
+       public string ConceptoVenta { get; set; }
         protected DataContainer()
         {
 

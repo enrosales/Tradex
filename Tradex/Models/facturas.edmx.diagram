@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b675f792e1804919b26e3e8e0f6e8eb6" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="Facturas.Fac_Talon" Width="1.5" PointX="10.5" PointY="1" />
+        <EntityTypeShape EntityType="Facturas.gen_producto" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="Facturas.inv_documento" Width="1.5" PointX="3.25" PointY="3.25" />
+        <EntityTypeShape EntityType="Facturas.inv_movimiento" Width="1.5" PointX="6.5" PointY="0.75" />
+        <AssociationConnector Association="Facturas.FK_inv_movimiento_gen_producto" />
+        <AssociationConnector Association="Facturas.FK_inv_movimiento_inv_documento" />
+        <EntityTypeShape EntityType="Facturas.gen_usuario" Width="1.5" PointX="1" PointY="5.125" />
+        <AssociationConnector Association="Facturas.FK_inv_documento_gen_usuario" />
+        <AssociationConnector Association="Facturas.FK_inv_documento_gen_usuario1" />
+        <EntityTypeShape EntityType="Facturas.gen_medida" Width="1.5" PointX="7.75" PointY="4.625" />
+        <AssociationConnector Association="Facturas.FK_gen_producto_gen_medida" />
+        <AssociationConnector Association="Facturas.FK_inv_movimiento_gen_medida" />
+        <EntityTypeShape EntityType="Facturas.fac_conceptoventa" Width="2.125" PointX="5.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -6,18 +6,21 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Microsoft.Office.Interop.Excel;
 using Tradex.Models;
-
+using Tablas= System.Data;
 namespace Tradex
 {
     public class Versat:DbContext
     {
         private readonly TradexEntities _tradexEntities = new TradexEntities();
+        private readonly facturasEntities _facturasEntities = new facturasEntities();
 
     
         public Versat()
         {
             _tradexEntities.Database.Connection.ConnectionString = DataContainer.Instance().ConectionString;
+            _facturasEntities.Database.Connection.ConnectionString = DataContainer.Instance().ConectionString;
         }
         
    
@@ -460,9 +463,9 @@ namespace Tradex
                 propEncodeString = Encoding.UTF8.GetString(utf8_Bytes, 0, utf8_Bytes.Length);
                 return propEncodeString;
             }
-            catch (Exception e)
+            catch (Exception )
             {
-                throw new Exception();
+                return "Sin existencia en versat";
             }
         }
 
@@ -554,6 +557,68 @@ namespace Tradex
             }, _tradexEntities.Database.Connection, query);
 
             return total;
+        }
+
+        public object Talones()
+        {
+           
+            return Helper.FormarCombo(_facturasEntities.Fac_Talon.ToList(), "talones");
+        }
+
+
+        public object Nombres()
+        {
+            return Helper.FormarCombo(_facturasEntities.gen_usuario.ToList(), "nombhecho");
+        }
+
+        public object ConceptoVentas()
+        {
+            fac_conceptoventa uno=new fac_conceptoventa();
+            uno.codigo = "001";
+            uno.descripcion = "Venta de MERCANCIA COSTO MAS HASTA 10% ";
+            fac_conceptoventa dos = new fac_conceptoventa();
+            dos.codigo = "002";
+            dos.descripcion = "VENTA DE OCIOSOS";
+            List<fac_conceptoventa> lista=new List<fac_conceptoventa>(){uno,dos};
+            return Helper.FormarCombo(lista, "conceptosventa");
+        }
+
+        public object Documentos(int numrows,DateTime ?fecha)
+        {
+            if (fecha == null)
+                fecha = DateTime.Now;
+            return _facturasEntities.inv_documento.Include(co => co.gen_usuario)
+                .Where(a => a.fecha == fecha && a.idsubsistema == 4 && a.idestado == 3).Take(numrows).ToList();
+        }
+
+        public object Detalles(int docid)
+        {
+           List<inv_movimiento> movs=_facturasEntities.inv_documento.Find(docid).inv_movimiento.ToList();
+           Tablas.DataTable t = new Tablas.DataTable();
+           t.Columns.Add("Almacen");
+           t.Columns.Add("Concepto");
+           t.Columns.Add("CodProd");
+           t.Columns.Add("UM");
+           t.Columns.Add("Cantidad");
+           t.Columns.Add("Precio CUP");
+           t.Columns.Add("Importe CUP");
+           t.Columns.Add("Precio CUC");
+           t.Columns.Add("Importe CUC");
+            string codigoAlmacen = DataContainer.Instance().Almacen;
+            foreach (var m in movs)
+            {
+                Tablas.DataRow row = t.NewRow();
+                row["Almacen"] = codigoAlmacen;
+                row["Concepto"] = DataContainer.Instance().ConceptoVenta;
+                row["CodProd"] = m.gen_producto.codigo;
+                row["UM"] = m.gen_producto.gen_medida.clave;
+                row["Cantidad"] = m.cantidad;
+                
+
+
+            }
+
+            return t;
         }
     }
 }

@@ -151,6 +151,45 @@ namespace Tradex
                         };
                         fin.Add(i);
                     }
+                    else if (parametroElegible == "talones") //SubCUC
+                    { //"idsubelemento", "codigo", "descripcion"
+                        var x = (Fac_Talon)(object)elemen;
+                        var i = new RadListDataItem
+                        {
+                            // en el value va: idsubelemento
+                            Value = x.Codigo,
+                            //en el texto: codigo y descripcion
+                            Text = x.Codigo + " " + x.Descripcion
+                        };
+                        fin.Add(i);
+                    }
+                    else if (parametroElegible == "nombhecho") //SubCUC
+                    { //"idsubelemento", "codigo", "descripcion"
+                        var x = (gen_usuario)(object)elemen;
+                        var i = new RadListDataItem
+                        {
+                            // en el value va: idsubelemento
+                            Value = x.nombre,
+                            //en el texto: codigo y descripcion
+                            Text = x.nombre
+                        };
+                        fin.Add(i);
+                    }
+                    else if (parametroElegible == "conceptosventa") //concetos de venta
+                    { //"idsubelemento", "codigo", "descripcion"
+                        var x = (fac_conceptoventa)(object)elemen;
+                        var i = new RadListDataItem
+                        {
+                            // en el value va: idsubelemento
+                            Value = x.codigo,
+                            //en el texto: codigo y descripcion
+                            Text = x.codigo+"-"+x.descripcion
+                        };
+                        fin.Add(i);
+                    }
+
+                        
+            
             return fin;
         }
 
@@ -173,7 +212,13 @@ namespace Tradex
             }
         }
 
+        public static void AddColumns(string columname, Type type, RadGridView r)
+        {
+            GridViewDataColumn c=new GridViewBrowseColumn(columname);
+            c.DataType = type;
+            r.Columns.Add(c);
+        }
 
-    
+
     }
 }

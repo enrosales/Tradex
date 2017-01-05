@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Facturas.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="fac_conceptoventa">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idconfig" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="idconceptofin" Type="int" Nullable="false" />
+    <Property Name="idcuentacont" Type="int" />
+    <Property Name="codigo" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="enexperimento" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fac_Talon">
+    <Key>
+      <PropertyRef Name="idtalon" />
+    </Key>
+    <Property Name="idtalon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idformato" Type="int" Nullable="false" />
+    <Property Name="posicion" Type="int" Nullable="false" />
+    <Property Name="CharBefore" Type="int" Nullable="false" />
+    <Property Name="Charafter" Type="int" Nullable="false" />
+    <Property Name="idtipotalon" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_medida">
+    <Key>
+      <PropertyRef Name="idmedida" />
+    </Key>
+    <Property Name="idmedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gen_producto">
+    <Key>
+      <PropertyRef Name="idproducto" />
+    </Key>
+    <Property Name="idproducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idmedida" Type="int" Nullable="false" />
+    <Property Name="idnivelclas" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="precio" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="gen_usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="tinyint" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="loginusuario" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="128" />
+    <Property Name="intentos" Type="int" Nullable="false" />
+    <Property Name="expira" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inv_documento">
+    <Key>
+      <PropertyRef Name="iddocumento" />
+    </Key>
+    <Property Name="iddocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="smalldatetime" Nullable="false" />
+    <Property Name="sumacantidad" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="sumaimporte" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="idunidad" Type="int" Nullable="false" />
+    <Property Name="idestado" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="sumaexistencia" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="idconcepto" Type="int" Nullable="false" />
+    <Property Name="numctrl" Type="varchar" MaxLength="50" />
+    <Property Name="idsubsistema" Type="tinyint" />
+    <Property Name="descripcion" Type="varchar" MaxLength="250" />
+    <Property Name="idusrconfirmar" Type="int" />
+    <Property Name="crc" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inv_movimiento">
+    <Key>
+      <PropertyRef Name="idmovimiento" />
+    </Key>
+    <Property Name="idmovimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="importe" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="existencia" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="iddocumento" Type="int" Nullable="false" />
+    <Property Name="idproducto" Type="int" Nullable="false" />
+    <Property Name="idmedida" Type="int" Nullable="false" />
+    <Property Name="crc" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_gen_producto_gen_medida">
+    <End Role="gen_medida" Type="Self.gen_medida" Multiplicity="1" />
+    <End Role="gen_producto" Type="Self.gen_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_medida">
+        <PropertyRef Name="idmedida" />
+      </Principal>
+      <Dependent Role="gen_producto">
+        <PropertyRef Name="idmedida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_documento_gen_usuario">
+    <End Role="gen_usuario" Type="Self.gen_usuario" Multiplicity="1" />
+    <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="inv_documento">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_documento_gen_usuario1">
+    <End Role="gen_usuario" Type="Self.gen_usuario" Multiplicity="0..1" />
+    <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="inv_documento">
+        <PropertyRef Name="idusrconfirmar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_movimiento_gen_medida">
+    <End Role="gen_medida" Type="Self.gen_medida" Multiplicity="1" />
+    <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_medida">
+        <PropertyRef Name="idmedida" />
+      </Principal>
+      <Dependent Role="inv_movimiento">
+        <PropertyRef Name="idmedida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_movimiento_gen_producto">
+    <End Role="gen_producto" Type="Self.gen_producto" Multiplicity="1" />
+    <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gen_producto">
+        <PropertyRef Name="idproducto" />
+      </Principal>
+      <Dependent Role="inv_movimiento">
+        <PropertyRef Name="idproducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_inv_movimiento_inv_documento">
+    <End Role="inv_documento" Type="Self.inv_documento" Multiplicity="1" />
+    <End Role="inv_movimiento" Type="Self.inv_movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inv_documento">
+        <PropertyRef Name="iddocumento" />
+      </Principal>
+      <Dependent Role="inv_movimiento">
+        <PropertyRef Name="iddocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FacturasStoreContainer">
+    <EntitySet Name="fac_conceptoventa" EntityType="Self.fac_conceptoventa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fac_Talon" EntityType="Self.Fac_Talon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_medida" EntityType="Self.gen_medida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_producto" EntityType="Self.gen_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gen_usuario" EntityType="Self.gen_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_documento" EntityType="Self.inv_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inv_movimiento" EntityType="Self.inv_movimiento" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_gen_producto_gen_medida" Association="Self.FK_gen_producto_gen_medida">
+      <End Role="gen_medida" EntitySet="gen_medida" />
+      <End Role="gen_producto" EntitySet="gen_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_documento_gen_usuario" Association="Self.FK_inv_documento_gen_usuario">
+      <End Role="gen_usuario" EntitySet="gen_usuario" />
+      <End Role="inv_documento" EntitySet="inv_documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_documento_gen_usuario1" Association="Self.FK_inv_documento_gen_usuario1">
+      <End Role="gen_usuario" EntitySet="gen_usuario" />
+      <End Role="inv_documento" EntitySet="inv_documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_movimiento_gen_medida" Association="Self.FK_inv_movimiento_gen_medida">
+      <End Role="gen_medida" EntitySet="gen_medida" />
+      <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_movimiento_gen_producto" Association="Self.FK_inv_movimiento_gen_producto">
+      <End Role="gen_producto" EntitySet="gen_producto" />
+      <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_inv_movimiento_inv_documento" Association="Self.FK_inv_movimiento_inv_documento">
+      <End Role="inv_documento" EntitySet="inv_documento" />
+      <End Role="inv_movimiento" EntitySet="inv_movimiento" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

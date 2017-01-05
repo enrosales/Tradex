@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FacturasStoreContainer" CdmEntityContainer="facturasEntities">
+    <EntitySetMapping Name="Fac_Talon">
+      <EntityTypeMapping TypeName="Facturas.Fac_Talon">
+        <MappingFragment StoreEntitySet="Fac_Talon">
+          <ScalarProperty Name="idtipotalon" ColumnName="idtipotalon" />
+          <ScalarProperty Name="Charafter" ColumnName="Charafter" />
+          <ScalarProperty Name="CharBefore" ColumnName="CharBefore" />
+          <ScalarProperty Name="posicion" ColumnName="posicion" />
+          <ScalarProperty Name="idformato" ColumnName="idformato" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="idtalon" ColumnName="idtalon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gen_producto">
+      <EntityTypeMapping TypeName="Facturas.gen_producto">
+        <MappingFragment StoreEntitySet="gen_producto">
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="idnivelclas" ColumnName="idnivelclas" />
+          <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_documento">
+      <EntityTypeMapping TypeName="Facturas.inv_documento">
+        <MappingFragment StoreEntitySet="inv_documento">
+          <ScalarProperty Name="crc" ColumnName="crc" />
+          <ScalarProperty Name="idusrconfirmar" ColumnName="idusrconfirmar" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idsubsistema" ColumnName="idsubsistema" />
+          <ScalarProperty Name="numctrl" ColumnName="numctrl" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+          <ScalarProperty Name="sumaexistencia" ColumnName="sumaexistencia" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="idestado" ColumnName="idestado" />
+          <ScalarProperty Name="idunidad" ColumnName="idunidad" />
+          <ScalarProperty Name="sumaimporte" ColumnName="sumaimporte" />
+          <ScalarProperty Name="sumacantidad" ColumnName="sumacantidad" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="iddocumento" ColumnName="iddocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inv_movimiento">
+      <EntityTypeMapping TypeName="Facturas.inv_movimiento">
+        <MappingFragment StoreEntitySet="inv_movimiento">
+          <ScalarProperty Name="crc" ColumnName="crc" />
+          <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+          <ScalarProperty Name="iddocumento" ColumnName="iddocumento" />
+          <ScalarProperty Name="existencia" ColumnName="existencia" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="idmovimiento" ColumnName="idmovimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gen_usuario">
+      <EntityTypeMapping TypeName="Facturas.gen_usuario">
+        <MappingFragment StoreEntitySet="gen_usuario">
+          <ScalarProperty Name="expira" ColumnName="expira" />
+          <ScalarProperty Name="intentos" ColumnName="intentos" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="loginusuario" ColumnName="loginusuario" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gen_medida">
+      <EntityTypeMapping TypeName="Facturas.gen_medida">
+        <MappingFragment StoreEntitySet="gen_medida">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="idmedida" ColumnName="idmedida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fac_conceptoventa">
+      <EntityTypeMapping TypeName="Facturas.fac_conceptoventa">
+        <MappingFragment StoreEntitySet="fac_conceptoventa">
+          <ScalarProperty Name="enexperimento" ColumnName="enexperimento" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="idcuentacont" ColumnName="idcuentacont" />
+          <ScalarProperty Name="idconceptofin" ColumnName="idconceptofin" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idconfig" ColumnName="idconfig" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -185,7 +185,7 @@ namespace Tradex
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(233, 22);
             this.txtPassword.TabIndex = 8;
-            this.txtPassword.Text = "Sql2016!";
+            this.txtPassword.Text = "Versat*123";
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // txtUsuario
@@ -343,7 +343,7 @@ namespace Tradex
             this.txtPassw.PasswordChar = '•';
             this.txtPassw.Size = new System.Drawing.Size(233, 22);
             this.txtPassw.TabIndex = 12;
-            this.txtPassw.Text = "Sql2016!";
+            this.txtPassw.Text = "Versat*123";
             this.txtPassw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassw_KeyPress);
             // 
             // txtUser

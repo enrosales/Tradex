@@ -52,12 +52,14 @@ namespace Tradex
                 //Las cuentas en MN configuradas para ese subsistema para que elijan
                 comboCuentaMn.DataSource = _versat.ComboCuentasMn(idUnidad.Value.ToString(), conceptoId);
                //lleno el combo con las entidadespara que el usuario seleccione
-               comboEntidadCliente.DataSource = _versat.ComboEntidadCliente();
-              //  MessageBox.Show(radDateTimeFechaDocumento.Value.ToShortDateString());
+                DataContainer.Instance().EntidadesCliente = _versat.ComboEntidadCliente();
+                comboEntidadCliente.DataSource = DataContainer.Instance().EntidadesCliente;
 
-              //  var codigoCliente = (RadListDataItem) comboEntidadCliente.SelectedItem.DataBoundItem;
-                
-              //  MessageBox.Show(codigoCliente.Value.ToString());
+                //  MessageBox.Show(radDateTimeFechaDocumento.Value.ToShortDateString());
+
+                //  var codigoCliente = (RadListDataItem) comboEntidadCliente.SelectedItem.DataBoundItem;
+
+                //  MessageBox.Show(codigoCliente.Value.ToString());
 
                 //Esta es la consulta que se genera cdo se levanta la ventana de agregar un servicio a una recepcion
 
@@ -72,6 +74,9 @@ namespace Tradex
                 left join gen_tasacambio T on DS.idtasa=T.idtasa
                 where iddocumento=@P1
                  */
+
+                //Guardando datos para la facturas
+                DataContainer.Instance().Almacen = idAlmacen.Value.ToString().Split('-')[1];
             }
             catch (Exception ex)
             {
@@ -147,6 +152,13 @@ namespace Tradex
         private void parámetrosDeConfiguraciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ConfigProperties(true).ShowDialog();
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            new Facturas().ShowDialog();
+            Cursor = Cursors.Arrow;
         }
     }
 }

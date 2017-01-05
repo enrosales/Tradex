@@ -211,7 +211,7 @@ namespace Tradex
         }
 
         private void DevolverPosicionDelArregloDeColumnasDelExcel(ref int colCod, ref int colUm, ref int colDesc,
-            ref int colCant, ref int colImporteMn, ref int colImporteCuc)
+            ref int colCant, ref int colImporteMn, ref int colImporteCuc,ref int colprecioMnFact,ref int colprecioCucFact)
         {
             char ini = char.Parse(Settings.Default.columnaInicio);
             char fin = char.Parse(Settings.Default.columnaFin);
@@ -232,6 +232,10 @@ namespace Tradex
                     colImporteMn = index;
                 else if (i == char.Parse(Settings.Default.columnaImporteCUC))
                     colImporteCuc = index;
+                else if (i == char.Parse(Settings.Default.ColumnaPrecioMNFACT))
+                    colprecioMnFact = index;
+                else if (i == char.Parse(Settings.Default.ColumnaPrecioCUCFACT))
+                    colprecioCucFact = index;
                 index++;
             }
         }
@@ -288,7 +292,7 @@ namespace Tradex
                 iRows = saRet.GetUpperBound(0);
                 // iCols = saRet.GetUpperBound(1);
                 string codProd, Um, descrip;
-                double cantidad, importeMn, importeCuc;
+                double cantidad, importeMn, importeCuc,precioMNFact,precioCUCFact;
 
                 #region comentado de ejemplo
 
@@ -309,27 +313,32 @@ namespace Tradex
                 #endregion
 
                 // int colCod=1, colUm=2, colDesc=3, colCant=6, colImporteMn=11, colImporteCuc=12;
-                int colCod = 0, colUm = 0, colDesc = 0, colCant = 0, colImporteMn = 0, colImporteCuc = 0;
+                int colCod = 0, colUm = 0, colDesc = 0, colCant = 0, colImporteMn = 0, colImporteCuc = 0,colPrecioMNFact=0,colprecioCUCFact=0;
 
 
 
                 List<object[]> producto, cuentas;
                 object[] datos = new object[0];
                 DevolverPosicionDelArregloDeColumnasDelExcel(ref colCod, ref colUm, ref colDesc, ref colCant,
-                    ref colImporteMn, ref colImporteCuc);
+                    ref colImporteMn, ref colImporteCuc, ref colPrecioMNFact, ref colprecioCUCFact);
                 List<string> codigos = CodigosExcel(colCod, saRet);
                 for (rowCounter = 1; rowCounter <= iRows; rowCounter++)
                 {
+
                     // codProd = saRet[rowCounter, 1].ToString();
                     // le paso la funcion trim() para quitarle los espacios en blanco sobrantes leidos del excel
                     codProd = saRet[rowCounter, colCod].ToString().Trim();
                     Um = saRet[rowCounter, colUm].ToString().Trim();
                     descrip = saRet[rowCounter, colDesc].ToString().Trim();
                    // Encoding enc = new UTF8Encoding(true, true);
-                    
-                    cantidad = double.Parse(saRet[rowCounter, colCant].ToString());
-                    importeMn = double.Parse(saRet[rowCounter, colImporteMn].ToString());
-                    importeCuc = double.Parse(saRet[rowCounter, colImporteCuc].ToString());
+                     
+                    //Validando valores null
+                    cantidad = double.Parse(saRet[rowCounter, colCant] == null ? "0" : saRet[rowCounter, colCant].ToString());
+                    importeMn = double.Parse(saRet[rowCounter, colImporteMn] == null ? "0" : saRet[rowCounter, colImporteMn].ToString());
+                    importeCuc = double.Parse(saRet[rowCounter, colImporteCuc] == null ? "0" : saRet[rowCounter, colImporteCuc].ToString());
+                    //Facturas
+                    precioMNFact = double.Parse(saRet[rowCounter, colPrecioMNFact] == null ? "0" : saRet[rowCounter, colPrecioMNFact].ToString());
+                    precioCUCFact = double.Parse(saRet[rowCounter, colprecioCUCFact] == null ? "0" : saRet[rowCounter, colprecioCUCFact].ToString());
                     ProductoDetalle pd = new ProductoDetalle();
                     //(si existe el prod en Versat y la existencia NO es 0 ) O si
                     //(si existe el prod en Versat y la descripcion es distinta a la del excel ) y la um es diferente a la del excel
@@ -390,6 +399,8 @@ namespace Tradex
                           //      pd.Descripcion = datos[1].ToString();
                             pd.Descripcion = descrip;
                             pd.Umo = Um;
+                            pd.precioMNFact = precioMNFact;
+                            pd.PrecioCUCFact = precioCUCFact;
                             //if (datos != null && datos.Length > 3)
                             //    pd.Umo = datos[3].ToString();
                         }
@@ -467,17 +478,17 @@ namespace Tradex
                         //mantener prod con mismo codigo igual q en el versat 
                         pd.Codigo = codProd;
                         pd.Umo = Um;
-                        pd.Descripcion = _versat.GetDesc(codProd);
+                        pd.Descripcion = descrip;
                         pd.Cantidad = cantidad;
                         pd.ImporteMlc = importeCuc;
                         pd.importeMn = importeMn;
                         pd.Existencia = cantidad;
+                        pd.precioMNFact = precioMNFact;
+                        pd.PrecioCUCFact = precioCUCFact;
                         ListadoDeProductos.Add(pd);
-                        
                         ListadoProductosOriginalExcel.Add(pd);
                     }
-
-                    List<ProductoDetalle> lrep = ListadoProductosOriginalExcel.Where(a => a.codigo == pd.codigo).ToList();
+                    List<ProductoDetalle> lrep = ListadoProductosOriginalExcel.Where(a => a.codigo == pd.codigo && a.descripcion==pd.descripcion).ToList();
                     if (lrep.Count() > 1)
                     {
                        lrepfinal.AddRange(lrep.Distinct());
@@ -518,33 +529,48 @@ namespace Tradex
         private bool repetidos;
         private void btnExportar_Click(object sender, EventArgs e)
         {
+           
+          
             List<ProductoDetalle> lrep = new List<ProductoDetalle>();
             lrep = ListadoDeProductos.Where(a => a.CuentaCuc == null || a.CuentaCup == null).ToList();
             if (lrep.Any())
             {
-                MessageBox.Show("Hay productos sin cuentas contables asociadas en el listado. " +
-                                "Para completar la exportación, todos los productos deben tener una cuenta en CUC y en CUP asociada.");
+                MessageBox.Show(@"Hay productos sin cuentas contables asociadas en el listado. " +
+                                @"Para completar la exportación, todos los productos deben tener una cuenta en CUC y en CUP asociada.");
                 return;
             }
-
-
-            string ruta = GuardarFicheroTxt();
+            Cursor = Cursors.WaitCursor;
+             new FacturasCopy().ShowDialog();
+             Cursor = Cursors.Arrow;
+            string ruta = SeleccionarCarpeta();
             if(ruta == null)
                 return;
             FileStream fs;
+            FileStream fsfact;
             try
             {
-                FileInfo fi = new FileInfo(ruta);
+                string recepcionName = Path.Combine(ruta,
+                    "mov_" + DateTime.Now.ToShortDateString().Replace('/','-') + "_" + radGridView1.Rows.Count+"prods.mvt");
+                string factnName = Path.Combine(ruta,"BF 160765.fac");
+
+                FileInfo fi = new FileInfo(recepcionName);
+                FileInfo factInfo = new FileInfo(factnName);
 
                 // Open the file just specified such that no one else can use it.
                 fs = fi.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Write);
-                
+                fsfact = factInfo.Open(FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Write);
                
                 // The using statement also closes the StreamWriter.
-                using (StreamWriter sw = new StreamWriter(fs))
+                using (StreamWriter sw = new StreamWriter(fs,Encoding.Default))
                 {
                     EscribirFichero(sw);
-                    MessageBox.Show("Fichero generado satisfactoriamente en: " + ruta);
+                   
+                }
+
+                using (StreamWriter sw = new StreamWriter(fsfact))
+                {
+                    EscribirFact(sw);
+                    MessageBox.Show(@"Ficheros generados satisfactoriamente en: " + ruta);
                 }
 
             }
@@ -557,6 +583,53 @@ namespace Tradex
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void EscribirFact(StreamWriter sw)
+        {
+            sw.WriteLine("Numero=");
+            sw.WriteLine("MC=PESOS CUBANOS");
+            sw.WriteLine("OM=PESOS CONVERTIBLES");
+            sw.WriteLine("Fecha=");
+            sw.WriteLine("Entidad="+DataContainer.Instance().Entidad);
+            sw.WriteLine("Concepto=");
+            sw.WriteLine("Comercial=");
+            sw.WriteLine("CtaBancoMC=");
+            sw.WriteLine("CtaBancoOM=");
+            sw.WriteLine("Forma=");
+            sw.WriteLine("Operacion=");
+            sw.WriteLine("Observacion=");
+            sw.WriteLine("MA=");
+            sw.WriteLine("CtoArancel=");
+            sw.WriteLine("PorcientoAra=0");
+            sw.WriteLine("Talon="+DataContainer.Instance().Talon);
+            sw.WriteLine("VtaCadena=");
+            sw.WriteLine("NomHecho=" + DataContainer.Instance().NombHecho);
+            sw.WriteLine("CargoHecho=");
+            sw.WriteLine("CIHecho=");
+            sw.WriteLine("NomJA=");
+            sw.WriteLine("CIJA=");
+            sw.WriteLine("NomTra=");
+            sw.WriteLine("Chapa=");
+            sw.WriteLine("LicTra=");
+            sw.WriteLine("CITra=");
+            sw.WriteLine("NomCliente=");
+            sw.WriteLine("CargoCliente=");
+            sw.WriteLine("CICliente=");
+            sw.WriteLine("[Propiedades]");
+            sw.WriteLine("[Detalle]");
+
+            string almacen = DataContainer.Instance().Almacen;
+            string concepto = DataContainer.Instance().ConceptoVenta;
+            foreach (var elemento in ListadoDeProductos)
+            {
+                string x = almacen+"|"+concepto+"|"+elemento.Codigo+"|"+elemento.Umo+"|"+
+                    elemento.cantidad.ToString().Replace(',', '.') + "|0|0|" + elemento.PrecioMNFact.ToString().Replace(',', '.') + "|0|0|" + elemento.PrecioCUCFact.ToString().Replace(',', '.');
+                sw.WriteLine(x);
+            }
+            sw.WriteLine("[PieFirma]");
+
+            sw.Close();
         }
 
         private void EscribirFichero(StreamWriter sw)
@@ -621,6 +694,7 @@ namespace Tradex
                 //serviciosmlc
                 sw.WriteLine("0");
             }
+            
         }
 
         private void EscribirUbicaciones(StreamWriter sw)
@@ -662,6 +736,18 @@ namespace Tradex
             }
 
             return @guardarFichero.FileName;
+        }
+
+        private string SeleccionarCarpeta()
+        {
+            var f=new FolderBrowserDialog();
+           ;
+           if (DialogResult.Cancel == f.ShowDialog())
+               return null;
+            if (f.SelectedPath != null)
+                return f.SelectedPath;
+            MessageBox.Show(@"Debe indicar la ruta para guardaran los documentos.");
+            return null;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -747,5 +833,10 @@ namespace Tradex
                 return true;
             return false;
         }
+
+
+
+
+        
     }
 }

@@ -227,3 +227,7 @@ D:\HLTemp\develop\Tradex\Tradex\obj\Debug\Tradex.csproj.GenerateResource.Cache
 D:\HLTemp\develop\Tradex\Tradex\obj\Debug\Tradex.exe
 D:\HLTemp\develop\Tradex\Tradex\obj\Debug\Tradex.pdb
 D:\HLTemp\develop\Tradex\Tradex\bin\Debug\Tradex.pdb
+D:\HLTemp\develop\Tradex\Tradex\obj\Debug\Tradex.Facturas.resources
+D:\HLTemp\develop\Tradex\Tradex\obj\Debug\Tradex.FacturasCopy.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.FacturasCopy.resources
+C:\Users\Eduardo\Desktop\Git\Tradex\Tradex\obj\Debug\Tradex.Facturas.resources
